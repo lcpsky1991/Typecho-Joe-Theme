@@ -12,7 +12,7 @@
 <body>
     <?php $this->need('components/header.php'); ?>
     <div class="j-archive">
-        <div class="j-main">
+        <div class="main">
             <div class="result-title">
                 <h1>" <span><?php echo $this->_keywords ?></span> "的相关结果</h1>
             </div>

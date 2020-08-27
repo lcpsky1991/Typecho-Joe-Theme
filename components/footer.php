@@ -12,7 +12,9 @@
 <script src="//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
 <script src="//apip.weatherdt.com/standard/static/js/weather-standard-common.js?v=2.0"></script>
+<script src="<?php $this->options->themeUrl('assets/js/cursor.min.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('assets/js/scrollText.min.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('assets/js/svg3dtagcloud.min.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('assets/js/cursor.min.js'); ?>"></script>
+<script src="<?php $this->options->themeUrl('assets/js/prism.min.js'); ?>"></script>
+<script src="<?php $this->options->themeUrl('assets/js/barrager.min.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('assets/js/common.js'); ?>"></script>

@@ -24,7 +24,7 @@
 <body>
     <?php $this->need('components/header.php'); ?>
     <div class="j-index">
-        <div class="j-main">
+        <div class="main">
             <ul class="article">
                 <?php while ($this->next()) : ?>
                     <li>

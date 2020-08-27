@@ -15,7 +15,7 @@
 
     <?php $this->need('components/header.php'); ?>
     <div class="j-post">
-        <div class="j-main">
+        <div class="main">
             <div class="article">
                 <div class="header">
                     <h1 id="mainTitle"><?php $this->title() ?></h1>
@@ -51,9 +51,6 @@
         <?php $this->need('components/aside.php'); ?>
     </div>
     <?php $this->need('components/footer.php'); ?>
-    <script src="<?php $this->options->themeUrl('assets/js/prism.min.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('assets/js/barrager.min.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('assets/js/post.js'); ?>"></script>
 </body>
 
 </html>
