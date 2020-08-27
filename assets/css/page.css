@@ -112,7 +112,10 @@
   list-style: decimal;
 }
 .j-page .main .article .markdown img {
+  display: block;
   max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
 }
 .j-page .main .article .markdown a {
   font-weight: 500;

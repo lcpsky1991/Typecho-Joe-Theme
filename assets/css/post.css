@@ -122,7 +122,10 @@
   list-style: decimal;
 }
 .j-post .main .article .markdown img {
+  display: block;
   max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
 }
 .j-post .main .article .markdown a {
   font-weight: 500;
