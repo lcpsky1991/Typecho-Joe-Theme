@@ -1,0 +1,108 @@
+.j-index {
+  padding: 30px 0;
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+.j-index .j-main {
+  width: 900px;
+  margin-right: 20px;
+  animation: showByLeft 1s;
+}
+.j-index .j-main .article {
+  margin-bottom: 20px;
+}
+.j-index .j-main .article li {
+  display: flex;
+  padding: 15px;
+  border-radius: 4px;
+  background: #fff;
+  margin-bottom: 20px;
+  transition: all 0.2s linear;
+}
+.j-index .j-main .article li:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.j-index .j-main .article li:last-child {
+  margin-bottom: 0;
+}
+.j-index .j-main .article li .pic {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.j-index .j-main .article li .pic:hover img {
+  transform: scale(1.05);
+}
+.j-index .j-main .article li .pic img {
+  transition: all 0.3s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.j-index .j-main .article li .detail .title {
+  display: block;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.j-index .j-main .article li .detail .title:hover {
+  opacity: 0.85;
+}
+.j-index .j-main .article li .detail .content {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #666;
+  text-align: justify;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+.j-index .j-main .article li .detail .content:hover {
+  opacity: 0.85;
+}
+.j-index .j-main .article li .detail .meta {
+  display: flex;
+  align-items: center;
+}
+.j-index .j-main .article li .detail .meta .item {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  height: 20px;
+}
+.j-index .j-main .article li .detail .meta .item svg {
+  width: 18px;
+  height: 18px;
+  fill: #999;
+  margin-right: 5px;
+}
+.j-index .j-main .article li .detail .meta .item span {
+  color: #999;
+  font-size: 14px;
+  user-select: none;
+}
+.j-index .j-main .article li .detail .meta .item a {
+  display: block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #409eff;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.j-index .j-main .article li .detail .meta .item a:hover {
+  text-decoration: underline;
+}

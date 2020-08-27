@@ -1,0 +1,80 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 25px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.j-guidang {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0;
+    .timeline {
+        background: #fff;
+        padding: 15px;
+        border-radius: 4px;
+        width: 100%;
+        .item {
+            position: relative;
+            padding: 0 0 25px 25px;
+            &:last-child {
+                padding-bottom: 0;
+                ul li {
+                    margin-bottom: 0;
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 9px;
+                left: 0;
+                width: 13px;
+                height: 13px;
+                background: #eee;
+                border-radius: 50%;
+                z-index: 5;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 9px;
+                left: 6px;
+                width: 1px;
+                height: 100%;
+                background: #ebebeb;
+                border-radius: 50%;
+            }
+            span {
+                display: block;
+                font-size: 20px;
+                color: #303133;
+                font-weight: 500;
+                margin-bottom: 5px;
+                line-height: 30px;
+                user-select: none;
+            }
+            ul {
+                padding-left: 15px;
+                li {
+                    display: none;
+                    margin-bottom: 8px;
+                    a {
+                        color: #555;
+                        font-size: 14px;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    &.fadeIn {
+                        display: block;
+                        animation: fadeIn 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
