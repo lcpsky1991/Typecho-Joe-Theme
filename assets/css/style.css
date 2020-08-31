@@ -227,6 +227,28 @@ body {
   cursor: pointer;
   transition: transform 0.2s;
 }
+.j-footer {
+  background: #222831;
+  padding: 20px 0;
+  text-align: center;
+}
+.j-footer .main {
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #9ca0ad;
+  user-select: none;
+}
+.j-footer .main a {
+  color: #9ca0ad;
+  transition: all 0.4s ease;
+}
+.j-footer .main a:hover {
+  color: #fff;
+}
+.j-footer .main span {
+  margin: 0 10px;
+}
 .j-aside {
   animation: showByRight 1s;
 }
@@ -437,12 +459,12 @@ body {
   background: #303133;
   color: #fff;
 }
-.j-footer {
+.j-actions {
   position: fixed;
   bottom: 15px;
   right: 15px;
 }
-.j-footer .button {
+.j-actions .button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -455,11 +477,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 0, 0, 0.2);
   transition: transform 400ms ease;
 }
-.j-footer .button svg {
+.j-actions .button svg {
   color: #795548;
   width: 15px;
 }
-.j-footer .button#backtop {
+.j-actions .button#backtop {
   transform: scale(0);
 }
 .j-comment {
