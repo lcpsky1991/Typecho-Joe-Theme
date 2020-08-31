@@ -23,7 +23,7 @@
             <button>发表评论</button>
         </div>
     </form>
-    <div id="commentList">
+    <div id="commentList" class="commentList">
         <?php $this->comments()->to($comments); ?>
         <?php if ($comments->have()) : ?>
             <?php $comments->listComments(); ?>

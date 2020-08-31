@@ -2,7 +2,6 @@
 
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowAboutAuthor', $this->options->sidebarBlock)) : ?>
         <div class="author card">
-            <h3>关于作者</h3>
             <div class="content">
                 <div class="user">
                     <?php if ($this->options->JQQ) : ?>
@@ -23,15 +22,15 @@
                 <div class="webinfo">
                     <div class="item">
                         <span class="num"><?php $quantity->publishedPostsNum(); ?></span>
-                        <span>文章数</span>
+                        <span>文章</span>
                     </div>
                     <div class="item">
                         <span class="num"><?php $quantity->publishedCommentsNum(); ?></span>
-                        <span>评论数</span>
+                        <span>评论</span>
                     </div>
                     <div class="item">
-                        <span class="num"><?php echo $this->options->birthday ? round((time() - strtotime($this->options->birthday)) / 86400, 0) : 0; ?></span>
-                        <span>运行天数</span>
+                        <span class="num"><?php $quantity->categoriesNum(); ?></span>
+                        <span>分类</span>
                     </div>
                 </div>
             </div>
@@ -71,8 +70,11 @@
                         <li title="<?php $comments->excerpt(); ?>">
                             <a href="<?php $comments->permalink(); ?>" target="_blank">
                                 <img src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100">
-                                <div>
-                                    <span><?php $comments->author(false); ?></span>
+                                <div class="info">
+                                    <div class="head">
+                                        <span><?php $comments->author(false); ?></span>
+                                        <span><?php $comments->date(); ?></span>
+                                    </div>
                                     <p><?php $comments->excerpt(); ?></p>
                                 </div>
                             </a>
