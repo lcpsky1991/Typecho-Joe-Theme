@@ -1,58 +1,41 @@
-$(function () {
+$(() => {
     /* <1> 图片懒加载 依赖footer.php里的、jquery.lazyLoad.min.js */
-    $('img').lazyload();
+    $('.lazyLoad').lazyload();
 
-    /* <2> 初始化天气, 这个配置可以自己去天气官网配置好然后粘贴替换 https://cj.weather.com.cn */
-    WIDGET = {
-        CONFIG: {
-            layout: 2,
-            width: '250',
-            height: '270',
-            background: 1,
-            dataColor: 'FFFFFF',
-            key: 'utmgXFwjn6'
-        }
-    };
-
-    /* <3> 判断是否需要显示返回顶部按钮 */
+    /* <2> 判断是否需要显示返回顶部按钮 */
     function showBackTop() {
+        /* 当页面滚动大于了500px的时候就显示返回顶部按钮 */
         if ($(window).scrollTop() > 500) $('#backtop').css('transform', 'scale(1)');
-        else $('#backtop').css('transform', 'scale(0)');
+        /* 否则不显示 */ else $('#backtop').css('transform', 'scale(0)');
     }
+    /* 页面第一次进来时候就调用判断一次 */
     showBackTop();
+    /* 页面上下滚动的时候判断 */
     $(window).on('scroll', () => showBackTop());
-
-    /* <4> 返回顶部点击事件 */
+    /* 点击返回顶部按钮后，页面带有动画的滚上去 （300 滚动时间，时间为毫秒） */
     $('#backtop').on('click', () => $('html,body').stop().animate({ scrollTop: 0 }, 300));
 
-    /* <5> 侧边栏评论无缝滚动 依赖scrollText.min.js */
+    /* <3> 侧边栏评论无缝滚动 依赖scrollText.min.js */
     if ($('#replyList').length > 0) {
         new ScrollText('replyList', '', '', true, 50, true);
     }
 
-    /* <6> 屏蔽右键按钮 */
-    $(document).on('contextmenu', function () {
-        return false;
+    /* 点击分类 弹出下拉框 */
+    $('#headerCate').on('click', function (event) {
+        event.stopPropagation();
+        if ($('#headerCateSubmenu').hasClass('active')) {
+            $('#headerCateSubmenu').removeClass('active');
+        } else {
+            $('#headerCateSubmenu').addClass('active');
+        }
     });
 
-    /* <7> 点击清空搜索输入框内容 */
-    $('#clearInputIcon').on('click', function () {
-        $('#searchInput').val('');
-        $(this).css('transform', 'scale(0)');
+    /* 页面点击事件 */
+    $(document).on('click', function () {
+        $('#headerCateSubmenu').removeClass('active');
     });
 
-    /* <8> 输入框输入显示隐藏清空图标 */
-    $('#searchInput').on('input', function () {
-        if ($(this).val().trim() !== '') $('#clearInputIcon').css('transform', 'scale(1)');
-        else $('#clearInputIcon').css('transform', 'scale(0)');
-    });
-
-    /* <9> 输入框为空时禁止提交 */
-    $('#searchForm').on('submit', function (e) {
-        if ($('#searchInput').val().trim() === '') e.preventDefault();
-    });
-
-    /* <10> 侧边栏标签云 依赖svg3dtagcloud.min.js */
+    /* <5> 侧边栏标签云 依赖svg3dtagcloud.js */
     if ($('#cloudList').length > 0) {
         let entries = Array.from($('#cloudList li')).map(_ => {
             return {
@@ -82,7 +65,34 @@ $(function () {
         });
     }
 
-    /* <11> 评论区验证 */
+    /* <6> 点击清空搜索输入框内容 */
+    $('#clearInputIcon').on('click', function () {
+        $('#searchInput').val('');
+        $('#clearInputIcon').css('transform', 'scale(0)');
+    });
+
+    /* <7> 输入框输入显示隐藏清空图标 */
+    $('#searchInput').on('input', function () {
+        if ($('#searchInput').val().trim() !== '') $('#clearInputIcon').css('transform', 'scale(1)');
+        else $('#clearInputIcon').css('transform', 'scale(0)');
+    });
+
+    /* <8> 输入框为空时禁止提交 */
+    $('#searchForm').on('submit', function (e) {
+        if ($('#searchInput').val().trim() === '') e.preventDefault();
+    });
+
+    /* <9> 归档列表依次进入 */
+    if ($('#timeline').length > 0) {
+        let guiDangLis = $('#timeline .item li');
+        Array.from(guiDangLis).forEach((item, index) => {
+            setTimeout(() => {
+                $(item).addClass('fadeIn');
+            }, 100 * index);
+        });
+    }
+
+    /* <10> 评论区验证 */
     function checkAuthor() {
         if ($('#author').val().trim() === '') {
             $('#author').addClass('error');
@@ -133,24 +143,14 @@ $(function () {
         }
     });
 
-    /* <12> 归档列表依次进入 */
-    if ($('#timeline').length > 0) {
-        let guiDangLis = $('#timeline .item li');
-        Array.from(guiDangLis).forEach((item, index) => {
-            setTimeout(() => {
-                $(item).addClass('fadeIn');
-            }, 100 * index);
-        });
-    }
-
-    /* <13> 设置markdown里面的内容链接为新标签页打开 */
+    /* <11> 设置markdown里面的内容链接为新标签页打开 */
     if ($('#markdown').length > 0) {
         $('#markdown a').each((i, item) => {
             $(item).attr('target', '_balnk');
         });
     }
 
-    /* <14> 初始化弹幕 依赖barrager.min.js */
+    /* <12> 初始化弹幕 依赖barrager.min.js */
     if ($('#commentList').length > 0) {
         let item = Array.from($('#commentList ol li')).map(_ => {
             return {
@@ -188,4 +188,9 @@ $(function () {
             }
         }
     }
+
+    /* <6> 屏蔽右键按钮 */
+    $(document).on('contextmenu', function () {
+        return false;
+    });
 });

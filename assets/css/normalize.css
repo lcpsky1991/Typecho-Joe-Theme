@@ -20,11 +20,9 @@ img[src=''],
 img:not([src]) {
   opacity: 0;
 }
-li {
-  list-style: none;
-}
 a {
   text-decoration: none;
+  color: #303133;
 }
 ::selection {
   color: #fff;

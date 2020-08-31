@@ -3,33 +3,32 @@
 /**
  * 基于 Typecho 开发的一款带弹幕的皮肤
  * 
- * @package Typecho Joe Theme 
- * @author Joe
+ * @package Typecho JoeTheme 
+ * @author HaoOuBa
  * @version 1.0
  * @link http://ae.js.cn
  */
 
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+$this->need('functions/functions.php');
 ?>
-
-<?php $this->need('tools/tools.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php $this->need('components/include.php'); ?>
-    <?php $this->header(); ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/index.css'); ?>">
 </head>
 
 <body>
     <?php $this->need('components/header.php'); ?>
+
     <div class="j-index">
         <div class="main">
             <ul class="article">
                 <?php while ($this->next()) : ?>
                     <li>
                         <a title="<?php $this->title() ?>" href="<?php $this->permalink() ?>" class="pic">
-                            <img data-original="<?php showThumbnail($this->options->themeUrl); ?>">
+                            <img class="lazyLoad" data-original="<?php showThumbnail($this->options->themeUrl); ?>">
                         </a>
                         <div class="detail">
                             <a title="<?php $this->title() ?>" href="<?php $this->permalink() ?>" class="title"><?php $this->title() ?></a>
@@ -71,6 +70,7 @@
         </div>
         <?php $this->need('components/aside.php'); ?>
     </div>
+
     <?php $this->need('components/footer.php'); ?>
 </body>
 

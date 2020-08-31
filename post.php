@@ -1,13 +1,13 @@
-<?php $this->need('tools/tools.php'); ?>
+<?php
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+$this->need('functions/functions.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php $this->need('components/include.php'); ?>
-    <?php $this->header(); ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/prism.min.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/post.css'); ?>">
 </head>
 
 <body>
