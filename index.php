@@ -70,8 +70,8 @@ $this->need('functions/functions.php');
         </div>
         <?php $this->need('components/aside.php'); ?>
     </div>
-
     <?php $this->need('components/footer.php'); ?>
+
 </body>
 
 </html>

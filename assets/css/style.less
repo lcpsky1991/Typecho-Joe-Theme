@@ -1,3 +1,7 @@
+html,
+body {
+    height: 100%;
+}
 body {
     padding-top: 60px;
     background: #ebebeb;
@@ -55,6 +59,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 60px;
     background: rgba(255, 255, 255, 0.5);
@@ -236,8 +241,9 @@ body {
 
 .j-footer {
     background: #222831;
-    padding: 20px 0;
     text-align: center;
+    height: 60px;
+    line-height: 60px;
     .main {
         width: 1200px;
         margin: 0 auto;
@@ -256,6 +262,7 @@ body {
         }
     }
 }
+
 .j-aside {
     animation: showByRight 1s;
     .card {
@@ -641,6 +648,7 @@ body {
     width: 1200px;
     margin: 0 auto;
     display: flex;
+    min-height: calc(100% - 60px);
     .main {
         flex: 1;
         min-width: 900px;
@@ -755,6 +763,7 @@ body {
     width: 1200px;
     margin: 0 auto;
     padding: 30px 0;
+    min-height: calc(100% - 60px);
     .timeline {
         background: #fff;
         padding: 15px;
@@ -826,6 +835,7 @@ body {
     width: 1200px;
     margin: 0 auto;
     display: flex;
+    min-height: calc(100% - 60px);
     .main {
         width: 100%;
         .result-title {
@@ -983,6 +993,7 @@ body {
     margin: 0 auto;
     padding: 30px 0;
     display: flex;
+    min-height: calc(100% - 60px);
     .main {
         flex: 1;
         min-width: 900px;

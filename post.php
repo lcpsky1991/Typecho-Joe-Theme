@@ -12,7 +12,6 @@ $this->need('functions/functions.php');
 
 <body>
     <div id="j-progress" class="j-progress"></div>
-
     <?php $this->need('components/header.php'); ?>
     <div class="j-post">
         <div class="main">
