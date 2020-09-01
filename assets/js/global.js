@@ -112,13 +112,17 @@ $(() => {
             $('#mail').addClass('error');
             $('#mail').next().html('请输入邮箱！');
             $('#mail').next().css('opacity', '1');
+            $('#commentAvatar').css('transform', 'scale(0)');
         } else if (!/^\w+@qq\.com$/.test($('#mail').val())) {
             $('#mail').addClass('error');
             $('#mail').next().html('请输入正确的邮箱！');
             $('#mail').next().css('opacity', '1');
+            $('#commentAvatar').css('transform', 'scale(0)');
         } else {
             $('#mail').removeClass('error');
             $('#mail').next().css('opacity', '0');
+            $('#commentAvatar').attr('src', 'http://q2.qlogo.cn/g?b=qq&nk=' + $('#mail').val() + '&s=100');
+            $('#commentAvatar').css('transform', 'scale(1)');
         }
     }
     function checkTextarea() {

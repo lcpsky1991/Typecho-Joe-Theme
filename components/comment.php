@@ -1,6 +1,10 @@
 <div class="j-comment">
     <h3>添加新评论</h3>
     <form method="post" id="comment-form" action="<?php $this->commentUrl() ?>">
+        <div class="textarea">
+            <textarea name="text" id="textarea" placeholder="请输入评论内容...（评论内容将以弹幕显示）" rows="7"></textarea>
+            <span class="tips"></span>
+        </div>
         <div class="head">
             <div class="form-item">
                 <input autocomplete="off" name="author" id="author" type="text" placeholder="请输入昵称（必填）">
@@ -15,11 +19,8 @@
                 <span class="tips"></span>
             </div>
         </div>
-        <div class="textarea">
-            <textarea name="text" id="textarea" placeholder="请输入评论内容...（评论内容将以弹幕显示）" rows="7"></textarea>
-            <span class="tips"></span>
-        </div>
         <div class="submit">
+            <img id="commentAvatar">
             <button>发表评论</button>
         </div>
     </form>
