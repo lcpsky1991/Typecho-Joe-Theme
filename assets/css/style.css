@@ -255,6 +255,36 @@ body {
 .j-footer .main span {
   margin: 0 10px;
 }
+.j-banquan {
+  border-top: 1px solid #ebebeb;
+  padding-top: 20px;
+  margin: 15px 0;
+}
+.j-banquan .content {
+  background: #f8fafc;
+  padding: 15px;
+}
+.j-banquan .content .item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 5px;
+}
+.j-banquan .content .item:last-child {
+  margin-bottom: 0;
+}
+.j-banquan .content .item svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+.j-banquan .content .item span {
+  user-select: none;
+}
+.j-banquan .content .item a {
+  color: #409eff;
+}
 .j-aside {
   animation: showByRight 1s;
 }

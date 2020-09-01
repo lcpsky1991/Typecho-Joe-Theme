@@ -40,6 +40,7 @@ $this->need('functions/functions.php');
                 <div class="markdown" id="markdown">
                     <?php $this->content(); ?>
                 </div>
+                <?php $this->need('components/banquan.php'); ?>
             </div>
             <ul class="page">
                 <?php $this->theNext('<li class="left">%s</li>', '', ['title' => '上一篇']); ?>
