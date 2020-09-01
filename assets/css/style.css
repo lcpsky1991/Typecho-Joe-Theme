@@ -310,6 +310,8 @@ body {
   margin-bottom: 10px;
   transition: all 0.75s ease;
   user-select: none;
+  background: #fff;
+  padding: 5px;
 }
 .j-aside .author .user img:hover {
   transform: rotate(360deg);
