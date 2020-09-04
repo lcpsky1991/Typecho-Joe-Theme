@@ -1,4 +1,4 @@
-<div class="j-comment">
+<div class="joe-comment">
     <h3>添加新评论</h3>
     <form method="post" id="comment-form" action="<?php $this->commentUrl() ?>">
         <div class="textarea">

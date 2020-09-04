@@ -1,4 +1,27 @@
 <?php
+function timer_start()
+{
+    global $timestart;
+    $mtime     = explode(' ', microtime());
+    $timestart = $mtime[1] + $mtime[0];
+    return true;
+}
+
+timer_start();
+
+function timer_stop($display = 0, $precision = 3)
+{
+    global $timestart, $timeend;
+    $mtime     = explode(' ', microtime());
+    $timeend   = $mtime[1] + $mtime[0];
+    $timetotal = number_format($timeend - $timestart, $precision);
+    $r         = $timetotal < 1 ? $timetotal * 1000 . "ms" : $timetotal . "s";
+    if ($display) {
+        echo $r;
+    }
+    return $r;
+}
+
 function get_post_view($archive, $r = 0)
 {
     $cid    = $archive->cid;

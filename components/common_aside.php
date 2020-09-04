@@ -1,5 +1,6 @@
-<div class="j-aside">
+<div class="joe-aside">
 
+    <!-- 关于作者 -->
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowAboutAuthor', $this->options->sidebarBlock)) : ?>
         <div class="author card">
             <div class="content">
@@ -8,8 +9,8 @@
                         <img src="//q.qlogo.cn/g?b=qq&nk=<?php $this->options->JQQ(); ?>&s=100" />
                         <a title="点击联系作者" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=<?php $this->options->JQQ(); ?>&site=qq&menu=yes"><?php $this->author->screenName(); ?></a>
                     <?php else : ?>
-                        <img src="//q.qlogo.cn/g?b=qq&nk=123456789&s=100" />
-                        <a title="点击联系作者" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><?php $this->author->screenName(); ?></a>
+                        <img src="//q.qlogo.cn/g?b=qq&nk=2323333339&s=100" />
+                        <a title="点击联系作者" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2323333339&site=qq&menu=yes"><?php $this->author->screenName(); ?></a>
                     <?php endif; ?>
 
                     <?php if ($this->options->JMotto) : ?>
@@ -37,6 +38,7 @@
         </div>
     <?php endif; ?>
 
+    <!-- 今日天气 -->
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowTodayWether', $this->options->sidebarBlock)) : ?>
         <div class="weather card">
             <h3>今日天气</h3>
@@ -46,6 +48,7 @@
         </div>
     <?php endif; ?>
 
+    <!-- 标签云 -->
     <?php if (!empty($this->options->sidebarBlock) && in_array('Show3DTag', $this->options->sidebarBlock)) : ?>
         <div class="cloud card">
             <h3>标签云</h3>
@@ -59,7 +62,7 @@
         </div>
     <?php endif; ?>
 
-
+    <!-- 最近回复 -->
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowReply', $this->options->sidebarBlock)) : ?>
         <div class="reply card">
             <h3>最近回复</h3>
@@ -85,6 +88,8 @@
         </div>
     <?php endif; ?>
 
+
+    <!-- 最新文章 -->
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArticle', $this->options->sidebarBlock)) : ?>
         <div class="relevant card">
             <h3>最新文章</h3>
@@ -96,5 +101,4 @@
             </div>
         </div>
     <?php endif; ?>
-
 </div>

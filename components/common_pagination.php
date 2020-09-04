@@ -5,7 +5,7 @@
     '...',
     array(
         'wrapTag' => 'ul',
-        'wrapClass' => 'j-pagination',
+        'wrapClass' => 'joe-pagination',
         'itemTag' => 'li',
         'textTag' => 'a',
         'currentClass' => 'active',
