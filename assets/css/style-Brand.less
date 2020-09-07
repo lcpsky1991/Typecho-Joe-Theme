@@ -239,6 +239,21 @@ body {
     display: flex;
     .joe-main {
         flex: 1;
+        overflow: hidden;
+    }
+}
+
+pre[class*='language-'] {
+    max-height: 750px;
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #fff;
+        &:hover {
+            background: #eee;
+        }
     }
 }
 
@@ -462,6 +477,9 @@ body {
         a {
             color: #98a6ad;
             margin-left: 24px;
+            &:hover {
+                color: @baseTheme;
+            }
         }
     }
 }
@@ -748,16 +766,20 @@ body {
             }
             ol {
                 padding: 0 40px;
+                margin: 20px 0;
                 li {
                     color: #333;
                     list-style: decimal;
+                    margin-bottom: 10px;
                 }
             }
             ul {
                 padding: 0 40px;
+                margin: 20px 0;
                 li {
                     color: #333;
                     list-style: disc;
+                    margin-bottom: 10px;
                 }
             }
             img {
@@ -818,12 +840,6 @@ body {
         .item {
             position: relative;
             padding: 0 0 25px 25px;
-            &:last-child {
-                padding-bottom: 0;
-                ul li {
-                    margin-bottom: 0;
-                }
-            }
             &::before {
                 content: '';
                 position: absolute;
@@ -1042,7 +1058,7 @@ body {
     height: 32px;
     line-height: 32px;
     font-size: 14px;
-    max-width: 200px;
+    max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

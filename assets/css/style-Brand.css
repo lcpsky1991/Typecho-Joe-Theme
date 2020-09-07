@@ -224,6 +224,20 @@ body {
 }
 .joe-container .joe-main {
   flex: 1;
+  overflow: hidden;
+}
+pre[class*='language-'] {
+  max-height: 750px;
+}
+pre[class*='language-']::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+pre[class*='language-']::-webkit-scrollbar-track {
+  background: #fff;
+}
+pre[class*='language-']::-webkit-scrollbar-track:hover {
+  background: #eee;
 }
 .joe-aside {
   margin-left: 20px;
@@ -436,6 +450,9 @@ body {
 .joe-footer .container a {
   color: #98a6ad;
   margin-left: 24px;
+}
+.joe-footer .container a:hover {
+  color: #409eff;
 }
 .joe-pagination {
   display: flex;
@@ -710,17 +727,21 @@ body {
 }
 .joe-article .article .markdown ol {
   padding: 0 40px;
+  margin: 20px 0;
 }
 .joe-article .article .markdown ol li {
   color: #333;
   list-style: decimal;
+  margin-bottom: 10px;
 }
 .joe-article .article .markdown ul {
   padding: 0 40px;
+  margin: 20px 0;
 }
 .joe-article .article .markdown ul li {
   color: #333;
   list-style: disc;
+  margin-bottom: 10px;
 }
 .joe-article .article .markdown img {
   display: block;
@@ -776,12 +797,6 @@ body {
 .joe-guidang .article .item {
   position: relative;
   padding: 0 0 25px 25px;
-}
-.joe-guidang .article .item:last-child {
-  padding-bottom: 0;
-}
-.joe-guidang .article .item:last-child ul li {
-  margin-bottom: 0;
 }
 .joe-guidang .article .item::before {
   content: '';
@@ -991,7 +1006,7 @@ body {
   height: 32px;
   line-height: 32px;
   font-size: 14px;
-  max-width: 200px;
+  max-width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
