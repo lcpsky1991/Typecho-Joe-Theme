@@ -116,8 +116,9 @@ body {
 .joe-header .container .nav .dropdown svg {
   width: 18px;
   height: 18px;
-  transition: transform 0.5s;
+  transition: transform 0.25s;
   fill: #999;
+  transform-origin: 50% 50%;
 }
 .joe-header .container .nav .dropdown .dropdown-content {
   top: 76px;
@@ -162,7 +163,7 @@ body {
   color: #66b1ff;
 }
 .joe-header .container .nav .dropdown.active svg {
-  transform: rotateX(-180deg);
+  transform: rotate(180deg);
 }
 .joe-header .container .nav .dropdown.active .dropdown-content {
   opacity: 1;
@@ -727,21 +728,21 @@ pre[class*='language-']::-webkit-scrollbar-track:hover {
 }
 .joe-article .article .markdown ol {
   padding: 0 40px;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .joe-article .article .markdown ol li {
   color: #333;
   list-style: decimal;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .joe-article .article .markdown ul {
   padding: 0 40px;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .joe-article .article .markdown ul li {
   color: #333;
   list-style: disc;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .joe-article .article .markdown img {
   display: block;
@@ -971,7 +972,7 @@ pre[class*='language-']::-webkit-scrollbar-track:hover {
   bottom: 15px;
   right: 15px;
 }
-.joe-actions .button {
+.joe-actions .backTop {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -984,12 +985,42 @@ pre[class*='language-']::-webkit-scrollbar-track:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 0, 0, 0.2);
   transition: transform 400ms ease;
 }
-.joe-actions .button svg {
+.joe-actions .backTop svg {
   color: #795548;
   width: 15px;
 }
-.joe-actions .button#backtop {
-  transform: scale(0);
+.joe-actions .barrage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 400ms ease;
+}
+.joe-actions .barrage svg {
+  fill: #795548;
+  width: 20px;
+  height: 20px;
+}
+.joe-actions .barrage::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  width: 25px;
+  height: 2px;
+  background: #795548;
+  transform: rotate(60deg) scaleX(0);
+  transition: all 0.25s;
+}
+.joe-actions .barrage.close::after {
+  transform: rotate(60deg) scaleX(1);
 }
 .joe-progress {
   position: fixed;

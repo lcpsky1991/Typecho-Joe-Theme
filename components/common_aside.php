@@ -40,12 +40,14 @@
 
     <!-- 今日天气 -->
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowTodayWether', $this->options->sidebarBlock)) : ?>
-        <div class="weather card">
-            <h3>今日天气</h3>
-            <div class="content">
-                <div id="weather-v2-plugin-standard"></div>
+        <?php if (!$this->is('post')) : ?>
+            <div class="weather card">
+                <h3>今日天气</h3>
+                <div class="content">
+                    <div id="weather-v2-plugin-standard"></div>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
     <?php endif; ?>
 
     <!-- 标签云 -->

@@ -193,4 +193,23 @@ $(function () {
     $(document).on('click', '#live2dcanvas', function () {
         console.log($('#live2dcanvas'));
     });
+
+    /* 显示/隐藏 弹幕 */
+    $('#barrage').on('click', function () {
+        $(this).toggleClass('close');
+        let barrageLists = $('.joe-barrage');
+        barrageLists.each(function (index, item) {
+            if ($('#barrage').hasClass('close')) {
+                $(item).css({
+                    opacity: 0,
+                    visibility: 'hidden'
+                });
+            } else {
+                $(item).css({
+                    opacity: 1,
+                    visibility: 'visible'
+                });
+            }
+        });
+    });
 });
