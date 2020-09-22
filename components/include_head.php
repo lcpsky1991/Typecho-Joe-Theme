@@ -1,45 +1,40 @@
-<!-- 公用头部 -->
+<!-- 字符集 -->
+<meta charset="utf-8" />
 
-<meta charset="UTF-8" />
+<!-- 渲染器选择  webkit 模式 -->
 <meta name="renderer" content="webkit" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" />
-<title><?php if ($this->_currentPage > 1) echo '第 ' . $this->_currentPage . ' 页 - '; ?><?php $this->archiveTitle(array('category'  =>  _t('分类 %s 下的文章'), 'search'    =>  _t('包含关键字 %s 的文章'), 'tag'       =>  _t('标签 %s 下的文章'), 'author'    =>  _t('%s 发布的文章')), '', ' - '); ?><?php $this->options->title(); ?></title>
 
-<?php $this->header(); ?>
+<!-- 禁止百度转码 -->
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<!-- 模板信息 -->
+<meta name="author" content="Joe, 2323333339@qq.com" />
+
+<!-- 以最高版本渲染页面 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+<!-- 视图窗口 -->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
+
+<!-- 自有函数 -->
+<?php $this->header('commentReply='); ?>
+
+<!-- 全局样式 -->
+<link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.min.css'); ?>" />
+
+<!-- 移动端样式 -->
+<link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-wap.min.css'); ?>" />
+
+<!-- 代码高亮 -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/plugin/prism/prism.min.css" />
+<script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/plugin/prism/prism.min.js"></script>
+
+<!-- 网站标题 -->
+<title><?php if ($this->_currentPage > 1) echo '第 ' . $this->_currentPage . ' 页 - '; ?><?php $this->archiveTitle(array('category'  =>  _t('分类 %s 下的文章'), 'search'    =>  _t('包含关键字 %s 的文章'), 'tag'       =>  _t('标签 %s 下的文章'), 'author'    =>  _t('%s 发布的文章')), '', ' - '); ?><?php $this->options->title(); ?></title>
 
 <!-- 开启/关闭默认favicon -->
 <?php if ($this->options->JFavicon) : ?>
     <link rel="shortcut icon" href="<?php $this->options->JFavicon() ?>" />
 <?php else : ?>
-    <link rel="shortcut icon" href="<?php $this->options->themeUrl('assets/img/favicon.ico'); ?>" />
-<?php endif; ?>
-
-
-<!-- 主题色 -->
-<link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-Brand.css'); ?>" />
-
-<!-- 代码高亮 -->
-<link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/prism.min.css'); ?>" />
-
-<!-- 开启/关闭音乐播放器 -->
-<?php if (!empty($this->options->windowBlock) && in_array('ShowAPlayer', $this->options->windowBlock)) : ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/APlayer.min.css'); ?>" />
-<?php endif; ?>
-
-
-<!-- 开启/关闭滚动条样式 -->
-<?php if (!empty($this->options->windowBlock) && in_array('ToggleScrollBarColor', $this->options->windowBlock)) : ?>
-    <style>
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: skyblue;
-            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-        }
-    </style>
+    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/assets/img/favicon.ico" />
 <?php endif; ?>

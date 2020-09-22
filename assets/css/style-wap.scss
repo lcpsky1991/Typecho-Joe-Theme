@@ -1,0 +1,42 @@
+$baseColor: var(--theme-color);
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    .j-container {
+        width: auto;
+    }
+    .j-main {
+        padding: 70px 0 20px;
+    }
+    .j-actions {
+        bottom: 70px;
+        right: 30px;
+        .item {
+            margin-top: 10px;
+        }
+    }
+    .j-footer {
+        height: auto;
+        .j-container {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            width: auto;
+            .left {
+                justify-content: center;
+                margin-bottom: 10px;
+                svg {
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+            .right {
+                a {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}

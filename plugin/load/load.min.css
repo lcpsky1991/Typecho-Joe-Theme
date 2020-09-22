@@ -1,0 +1,9 @@
+.j-load{display:flex;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999999;background-image:linear-gradient(120deg,#84fab0 0,#8fd3f4 100%)}
+.j-load svg{width:600px;height:auto;--stroke-dash:46;--stroke-dash-negative:-46}
+g#car{transform:translateX(-3px);animation:translate 2s ease-in-out infinite}path#shadow{animation:skew 2s ease-in-out infinite}
+g.wheels use{animation:rotate 2s linear infinite}path.air{stroke-dasharray:var(--stroke-dash);stroke-dashoffset:var(--stroke-dash);animation:offset 2s linear infinite;opacity:0}
+@keyframes translate{50%{transform:translateX(3px)}100%{transform:translateX(-3px)}
+}@keyframes skew{50%{transform:skewX(-20deg)}}@keyframes rotate{50%{transform:rotate(4turn)}
+100%{transform:rotate(6turn)}}@keyframes offset{1%{opacity:1}15%{stroke-dashoffset:0;opacity:1}
+24%{opacity:1}25%{opacity:0;stroke-dashoffset:var(--stroke-dash-negative)}100%{stroke-dashoffset:var(--stroke-dash-negative)}
+}

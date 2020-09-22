@@ -1,3 +1,5 @@
+<!-- 分页 -->
+
 <?php $this->pageNav(
     '上一页',
     '下一页',
@@ -5,7 +7,7 @@
     '...',
     array(
         'wrapTag' => 'ul',
-        'wrapClass' => 'joe-pagination',
+        'wrapClass' => 'j-pagination',
         'itemTag' => 'li',
         'textTag' => 'a',
         'currentClass' => 'active',
