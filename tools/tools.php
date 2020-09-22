@@ -79,9 +79,9 @@ class Widget_Post_hot extends Widget_Abstract_Contents
 /* 随机图片 */
 function showThumbnail($widget)
 {
-    $random = theurl . 'assets/img/random/' . rand(1, 25) . '.jpg';
-    if (Helper::options()->mos) {
-        $moszu = explode("\r\n", Helper::options()->mos);
+    $random = theurl . 'assets/img/random/' . rand(1, 25) . '.webp';
+    if (Helper::options()->Jmos) {
+        $moszu = explode("\r\n", Helper::options()->Jmos);
         $random = $moszu[array_rand($moszu, 1)];
     }
     $pattern = '/\<img.*?src\=\"(.*?)\"[^>]*>/i';

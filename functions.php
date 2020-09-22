@@ -173,6 +173,10 @@ function themeConfig($form)
     $JCDN->setAttribute('class', 'j-content j-global');
     $form->addInput($JCDN->multiMode());
 
+    $Jmos = new Typecho_Widget_Helper_Form_Element_Textarea('Jmos', NULL, NULL, _t('11. 默认缩略图设置'), _t('填写图片地址，一行一个图片地址，文章中没有图片时将随机使用这里面的图片地址，不填写则使用程序内置的图片'));
+    $Jmos->setAttribute('class', 'j-content j-global');
+    $form->addInput($Jmos);
+
 
     /* 侧边栏控制 */
     $JAsideBlock = new Typecho_Widget_Helper_Form_Element_Checkbox(
