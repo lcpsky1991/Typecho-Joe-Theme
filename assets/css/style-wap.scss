@@ -11,8 +11,10 @@ $baseColor: var(--theme-color);
         padding: 70px 0 20px;
     }
     .j-actions {
-        bottom: 70px;
-        right: 30px;
+        display: none;
+        bottom: 80px;
+        right: auto;
+        left: 10px;
         .item {
             margin-top: 10px;
         }
@@ -22,7 +24,7 @@ $baseColor: var(--theme-color);
         .j-container {
             display: block;
             text-align: center;
-            padding: 10px;
+            padding: 20px 10px;
             width: auto;
             .left {
                 justify-content: center;
@@ -38,5 +40,8 @@ $baseColor: var(--theme-color);
                 }
             }
         }
+    }
+    .j-pagination {
+        justify-content: center;
     }
 }

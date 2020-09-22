@@ -10,7 +10,11 @@
                     <!-- 联系作者 -->
                     <?php if ($this->options->JQQ) : ?>
                         <img src="//q.qlogo.cn/g?b=qq&nk=<?php $this->options->JQQ(); ?>&s=100" />
-                        <a title="点击联系作者" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=<?php $this->options->JQQ(); ?>&site=qq&menu=yes"><?php $this->author->screenName(); ?></a>
+                        <?php if ($this->options->JQQLink) : ?>
+                            <a href="<?php $this->options->JQQLink(); ?>"><?php $this->author->screenName(); ?></a>
+                        <?php else : ?>
+                            <a title="点击联系作者" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=<?php $this->options->JQQ(); ?>&site=qq&menu=yes"><?php $this->author->screenName(); ?></a>
+                        <?php endif; ?>
                     <?php else : ?>
                         <img src="//q.qlogo.cn/g?b=qq&nk=2323333339&s=100" />
                         <a title="点击联系作者" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=2323333339&site=qq&menu=yes"><?php $this->author->screenName(); ?></a>

@@ -9,8 +9,10 @@
     padding: 70px 0 20px;
   }
   .j-actions {
-    bottom: 70px;
-    right: 30px;
+    display: none;
+    bottom: 80px;
+    right: auto;
+    left: 10px;
   }
   .j-actions .item {
     margin-top: 10px;
@@ -21,7 +23,7 @@
   .j-footer .j-container {
     display: block;
     text-align: center;
-    padding: 10px;
+    padding: 20px 10px;
     width: auto;
   }
   .j-footer .j-container .left {
@@ -34,5 +36,8 @@
   }
   .j-footer .j-container .right a {
     margin: 0 10px;
+  }
+  .j-pagination {
+    justify-content: center;
   }
 }

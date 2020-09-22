@@ -178,3 +178,10 @@ function isMobile()
     }
     return false;
 }
+
+function getVersion()
+{
+    $json_string = file_get_contents(theurl . 'package.json');
+    $data = json_decode($json_string, true);
+    return $data['version'];
+}

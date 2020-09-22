@@ -26,8 +26,8 @@
 <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-wap.min.css'); ?>" />
 
 <!-- 代码高亮 -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/plugin/prism/prism.min.css" />
-<script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/plugin/prism/prism.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.css" />
+<script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.js"></script>
 
 <!-- 网站标题 -->
 <title><?php if ($this->_currentPage > 1) echo '第 ' . $this->_currentPage . ' 页 - '; ?><?php $this->archiveTitle(array('category'  =>  _t('分类 %s 下的文章'), 'search'    =>  _t('包含关键字 %s 的文章'), 'tag'       =>  _t('标签 %s 下的文章'), 'author'    =>  _t('%s 发布的文章')), '', ' - '); ?><?php $this->options->title(); ?></title>
@@ -36,5 +36,5 @@
 <?php if ($this->options->JFavicon) : ?>
     <link rel="shortcut icon" href="<?php $this->options->JFavicon() ?>" />
 <?php else : ?>
-    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/favicon.ico" />
 <?php endif; ?>

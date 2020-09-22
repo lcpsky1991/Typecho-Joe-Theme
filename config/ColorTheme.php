@@ -1,6 +1,6 @@
 <?php if (!empty($this->options->JWindowBlock) && in_array('ShowColorTheme', $this->options->JWindowBlock)) : ?>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/plugin/colpick/colpick.min.css" />
-    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@1.0.5/plugin/colpick/colpick.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/colpick/colpick.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/colpick/colpick.min.js"></script>
     <script>
         $(function() {
             /* 初始化主题色 */

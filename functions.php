@@ -6,7 +6,19 @@ function themeConfig($form)
 { ?>
 
     <link href="<?php echo theurl ?>assets/css/functions.min.css" rel="stylesheet" type="text/css" />
-
+    <h1 class="j-title">公告</h1>
+    <div class="j-notice">
+        <?php
+        $result = file_get_contents("https://api.vvhan.com/api/qqsc?key=1668901a8a41e2e9deaaaa3100ebd4ae");
+        $data = json_decode($result, true);
+        if ($data["title"] !== getVersion()) {
+            echo "<h2>检测到版本更新！</h2>";
+        }
+        echo "<p>当前版本号：" . getVersion() . "</p>";
+        echo "<p>最新版本号：" . $data["title"] . "</p>";
+        echo $data["content"];
+        ?>
+    </div>
     <ul class="j-tab">
         <li data-show="j-global">
             <svg t="1600161921766" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -36,6 +48,7 @@ function themeConfig($form)
 
     <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="<?php echo theurl ?>assets/js/functions.js"></script>
+
 
 <?php
 
@@ -171,6 +184,10 @@ function themeConfig($form)
     $JQQ->setAttribute('class', 'j-content j-aside');
     $form->addInput($JQQ);
 
+    $JQQLink = new Typecho_Widget_Helper_Form_Element_Text('JQQLink', NULL, NULL, _t('2-1. 作者信息 —— 点击昵称跳转链接（非必填）'), _t('请填写URL地址，如果不填写则默认跳转到联系QQ'));
+    $JQQLink->setAttribute('class', 'j-content j-aside');
+    $form->addInput($JQQLink);
+
 
     $JMotto = new Typecho_Widget_Helper_Form_Element_Text('JMotto', NULL, NULL, _t('2-2. 作者信息 —— 座右铭（非必填）'), _t('请填写一个座右铭或激励的文案，字数建议控制在15字以内'));
     $JMotto->setAttribute('class', 'j-content j-aside');
@@ -201,6 +218,8 @@ function themeConfig($form)
     $JADContent2Link->setAttribute('class', 'j-content j-aside');
     $form->addInput($JADContent2Link);
 
+
+
     /* 选择热门文章显示的个数 */
     $JAsideReplyNum = new Typecho_Widget_Helper_Form_Element_Select(
         'JAsideReplyNum',
@@ -219,6 +238,8 @@ function themeConfig($form)
     );
     $JAsideReplyNum->setAttribute('class', 'j-content j-aside');
     $form->addInput($JAsideReplyNum->multiMode());
+
+
 
     /* 首页控制 */
     $JIndexBlock = new Typecho_Widget_Helper_Form_Element_Checkbox(
