@@ -72,6 +72,17 @@ img:not([src]) {
     opacity: 0;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 .j-main {
     display: flex;
     padding: 135px 0 30px;
@@ -845,7 +856,7 @@ img:not([src]) {
                 justify-content: space-between;
                 margin-bottom: 15px;
                 a {
-                    color: #364e65;
+                    color: #444;
                     font-size: 14px;
                     max-width: 85%;
                     overflow: hidden;
@@ -1400,6 +1411,69 @@ img:not([src]) {
                         &::-webkit-scrollbar-track {
                             border-radius: 0;
                             background: #fff;
+                        }
+                    }
+                }
+            }
+            .timeline {
+                background: #fff;
+                .item {
+                    position: relative;
+                    padding: 0 0 30px 25px;
+                    
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 9px;
+                        left: 0;
+                        width: 13px;
+                        height: 13px;
+                        background: #eee;
+                        border-radius: 50%;
+                        z-index: 5;
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 9px;
+                        left: 6px;
+                        width: 1px;
+                        height: 100%;
+                        background: #ebebeb;
+                        border-radius: 50%;
+                    }
+                    span {
+                        display: block;
+                        font-size: 20px;
+                        color: #303133;
+                        font-weight: 500;
+                        line-height: 30px;
+                        margin-bottom: 15px;
+                        user-select: none;
+                    }
+                    ul {
+                        padding-left: 15px;
+                        li {
+                            display: none;
+                            margin-bottom: 10px;
+                            &.fadeIn {
+                                display: block;
+                                animation: fadeIn 0.5s;
+                            }
+                            a {
+                                color: #555;
+                                font-size: 14px;
+                                &:hover {
+                                    color: $baseColor;
+                                    text-decoration: underline;
+                                }
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
                         }
                     }
                 }

@@ -12,6 +12,14 @@
             })
         })
 
+        if ($('#timeline').length > 0) {
+            $('#timeline .item li').each(function(i, item) {
+                setTimeout(() => {
+                    $(item).addClass('fadeIn');
+                }, 100 * i);
+            });
+        }
+
 
         /* 点击关闭图片预览 */
         $(".j-preview").on("click", function() {
