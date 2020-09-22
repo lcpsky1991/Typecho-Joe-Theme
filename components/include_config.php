@@ -1,9 +1,14 @@
 <!-- jquery 3.5.1库  -->
-<!-- <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.js"></script>
+<?php if ($this->options->JCDN == 'close') : ?>
+    <script src="<?php $this->options->themeUrl('plugin/jquery/jquery.min.js'); ?>"></script>
+    <!-- 图片懒加载  -->
+    <script src="<?php $this->options->themeUrl('plugin/lazyload/lazyload.min.js'); ?>"></script>
+<?php else : ?>
+    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/jquery/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/lazyload/lazyload.min.js"></script>
+<?php endif; ?>
 
-<!-- 图片懒加载  -->
-<script src="//cdn.jsdelivr.net/npm/jquery-lazyload@1.9.7/jquery.lazyload.min.js"></script>
+
 
 <!-- 全局JS，自执行 -->
 <?php $this->need('config/GlobalJS.php'); ?>

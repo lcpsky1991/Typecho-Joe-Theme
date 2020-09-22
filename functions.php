@@ -4,8 +4,7 @@ require_once("tools/url.php");
 require_once("tools/tools.php");
 function themeConfig($form)
 { ?>
-
-    <link href="<?php echo theurl ?>assets/css/functions.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo theurl ?>/assets/css/functions.min.css" rel="stylesheet" type="text/css" />
     <h1 class="j-title">公告</h1>
     <div class="j-notice">
         <?php
@@ -46,8 +45,8 @@ function themeConfig($form)
         </li>
     </ul>
 
-    <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="<?php echo theurl ?>assets/js/functions.js"></script>
+    <script src="<?php echo theurl ?>/plugin/jquery/jquery.min.js"></script>
+    <script src="<?php echo theurl ?>/assets/js/functions.js"></script>
 
 
 <?php
@@ -161,6 +160,18 @@ function themeConfig($form)
     $JGlobalTheme->setAttribute('class', 'j-content j-global');
     $form->addInput($JGlobalTheme);
 
+    /* 鼠标特效类型 */
+    $JCDN = new Typecho_Widget_Helper_Form_Element_Select(
+        'JCDN',
+        array(
+            'close' => _t('关闭（默认）'),
+            'open' => _t('使用jsdelivr加速'),
+        ),
+        'close',
+        _t('10. 选择是否启用CDN加速')
+    );
+    $JCDN->setAttribute('class', 'j-content j-global');
+    $form->addInput($JCDN->multiMode());
 
 
     /* 侧边栏控制 */
@@ -217,7 +228,6 @@ function themeConfig($form)
     $JADContent2Link = new Typecho_Widget_Helper_Form_Element_Text('JADContent2Link', NULL, NULL, _t('5-2. 广告2 —— 跳转地址（非必填）'), _t('请填写广告2的跳转链接'));
     $JADContent2Link->setAttribute('class', 'j-content j-aside');
     $form->addInput($JADContent2Link);
-
 
 
     /* 选择热门文章显示的个数 */

@@ -12,9 +12,20 @@
     <?php if ($this->options->JFavicon) : ?>
         <link rel="shortcut icon" href="<?php $this->options->JFavicon() ?>" />
     <?php else : ?>
-        <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/favicon.ico" />
+        <?php if ($this->options->JCDN == 'close') : ?>
+            <link rel="shortcut icon" href="<?php $this->options->themeUrl('assets/img/favicon.ico'); ?>" />
+        <?php else : ?>
+            <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/favicon.ico" />
+        <?php endif; ?>
     <?php endif; ?>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/404/404.min.css">
+
+
+    <?php if ($this->options->JCDN == 'close') : ?>
+        <link rel="stylesheet" href="<?php $this->options->themeUrl('plugin/404/404.min.css'); ?>">
+    <?php else : ?>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/404/404.min.css">
+    <?php endif; ?>
+
 </head>
 
 <body>
@@ -22,8 +33,15 @@
     <h1> - 这个页面已经不在了 - </h1>
     <div id="svgContainer"></div>
     <a href="<?php $this->options->siteUrl(); ?>">返回首页</a>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/404/bodymovin.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/404/data.min.js"></script>
+
+    <?php if ($this->options->JCDN == 'close') : ?>
+        <script type="text/javascript" src="<?php $this->options->themeUrl('plugin/404/bodymovin.min.js'); ?>"></script>
+        <script type="text/javascript" src="<?php $this->options->themeUrl('plugin/404/data.min.js'); ?>"></script>
+    <?php else : ?>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/404/bodymovin.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/404/data.min.js"></script>
+    <?php endif; ?>
+
     <script type="text/javascript">
         var svgContainer = document.getElementById('svgContainer');
         var animItem = bodymovin.loadAnimation({

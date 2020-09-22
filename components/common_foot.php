@@ -38,7 +38,7 @@
             <?php if ($this->options->JBanQuan) : ?>
                 <span class="info"><?php $this->options->JBanQuan() ?></span>
             <?php else : ?>
-                <span class="info">2015 - 2020 © Reach - HaoOuBa</span>
+                <span class="info">2015 - 2020 © Reach - Joe</span>
             <?php endif; ?>
 
 

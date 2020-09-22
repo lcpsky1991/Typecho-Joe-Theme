@@ -11,7 +11,11 @@
         </div>
         <textarea name="text" autocomplete="off" id="comment-content" class="body" rows="5" placeholder="说点什么吧。。。"></textarea>
         <div class="foot">
-            <img id="comment-avatar" src="<?php $this->options->themeUrl('assets/img/nouser.png'); ?>">
+            <?php if ($this->options->JCDN == 'close') : ?>
+                <img id="comment-avatar" src="<?php $this->options->themeUrl('assets/img/nouser.png'); ?>">
+            <?php else : ?>
+                <img id="comment-avatar" src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/nouser.png">
+            <?php endif; ?>
             <button>发表评论</button>
         </div>
     </form>

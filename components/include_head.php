@@ -19,15 +19,21 @@
 <!-- 自有函数 -->
 <?php $this->header('commentReply='); ?>
 
-<!-- 全局样式 -->
-<link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.min.css'); ?>" />
 
-<!-- 移动端样式 -->
-<link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-wap.min.css'); ?>" />
-
-<!-- 代码高亮 -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.css" />
-<script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.js"></script>
+<?php if ($this->options->JCDN == 'close') : ?>
+    <!-- 全局样式 -->
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.min.css'); ?>" />
+    <!-- 移动端样式 -->
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-wap.min.css'); ?>" />
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('plugin/prism/prism.min.css'); ?>" />
+    <script src="<?php $this->options->themeUrl('plugin/prism/prism.min.js'); ?>"></script>
+<?php else : ?>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style-wap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.js"></script>
+<?php endif; ?>
 
 <!-- 网站标题 -->
 <title><?php if ($this->_currentPage > 1) echo '第 ' . $this->_currentPage . ' 页 - '; ?><?php $this->archiveTitle(array('category'  =>  _t('分类 %s 下的文章'), 'search'    =>  _t('包含关键字 %s 的文章'), 'tag'       =>  _t('标签 %s 下的文章'), 'author'    =>  _t('%s 发布的文章')), '', ' - '); ?><?php $this->options->title(); ?></title>
@@ -36,5 +42,9 @@
 <?php if ($this->options->JFavicon) : ?>
     <link rel="shortcut icon" href="<?php $this->options->JFavicon() ?>" />
 <?php else : ?>
-    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/favicon.ico" />
+    <?php if ($this->options->JCDN == 'close') : ?>
+        <link rel="shortcut icon" href="<?php $this->options->themeUrl('assets/img/favicon.ico'); ?>" />
+    <?php else : ?>
+        <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/favicon.ico" />
+    <?php endif; ?>
 <?php endif; ?>

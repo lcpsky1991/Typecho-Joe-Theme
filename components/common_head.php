@@ -13,7 +13,11 @@
             <?php if ($this->options->JLogo) : ?>
                 <img src="<?php $this->options->JLogo() ?>" />
             <?php else : ?>
-                <img src="<?php $this->options->themeUrl('assets/img/logo.svg'); ?>" />
+                <?php if ($this->options->JCDN == 'close') : ?>
+                    <img src="<?php $this->options->themeUrl('assets/img/logo.svg'); ?>" />
+                <?php else : ?>
+                    <img src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/logo.svg" />
+                <?php endif; ?>
             <?php endif; ?>
         </a>
 
@@ -30,7 +34,11 @@
         <form class="search" id="search" method="get" action="<?php $this->options->siteUrl(); ?>">
             <input maxlength="20" name="s" autocomplete="off" <?php if ($this->is('search')) : ?>value="<?php $this->archiveTitle(' &raquo; ', '', ''); ?>" <?php endif; ?> type="text" placeholder="请输入关键字..." />
             <button>Search</button>
-            <img src="<?php $this->options->themeUrl('assets/img/upiocn.png'); ?>" />
+            <?php if ($this->options->JCDN == 'close') : ?>
+                <img src="<?php $this->options->themeUrl('assets/img/upiocn.png'); ?>" />
+            <?php else : ?>
+                <img src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/upiocn.png" />
+            <?php endif; ?>
         </form>
     </div>
 

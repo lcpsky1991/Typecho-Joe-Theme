@@ -1,6 +1,12 @@
 <?php if (!empty($this->options->JWindowBlock) && in_array('ShowColorTheme', $this->options->JWindowBlock)) : ?>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/colpick/colpick.min.css" />
-    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/colpick/colpick.min.js"></script>
+    <?php if ($this->options->JCDN == 'close') : ?>
+        <link rel="stylesheet" href="<?php $this->options->themeUrl('plugin/colpick/colpick.min.css'); ?>" />
+        <script src="<?php $this->options->themeUrl('plugin/colpick/colpick.min.js'); ?>"></script>
+    <?php else : ?>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/colpick/colpick.min.css" />
+        <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/colpick/colpick.min.js"></script>
+    <?php endif; ?>
+
     <script>
         $(function() {
             /* 初始化主题色 */
