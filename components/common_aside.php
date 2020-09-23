@@ -83,7 +83,7 @@
             <div class="aside aside-reply">
                 <h3>最新回复</h3>
                 <ol class="list" id="asideReply">
-                    <?php $this->widget('Widget_Comments_Recent', 'ignoreAuthor=true&pageSize=5')->to($comments); ?>
+                    <?php $this->widget('Widget_Comments_Recent@sb666', 'ignoreAuthor=true&pageSize=5')->to($comments); ?>
                     <?php while ($comments->next()) : ?>
                         <li>
                             <div class="user">

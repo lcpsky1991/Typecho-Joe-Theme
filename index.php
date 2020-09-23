@@ -5,7 +5,7 @@
  * 
  * @package Typecho_Joe_Theme 
  * @author Joe
- * @version 1.1.3
+ * @version 1.1.4
  * @link //ae.js.cn
  */
 
