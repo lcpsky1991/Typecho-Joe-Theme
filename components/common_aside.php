@@ -83,7 +83,7 @@
             <div class="aside aside-reply">
                 <h3>最新回复</h3>
                 <ol class="list" id="asideReply">
-                    <?php $this->widget('Widget_Comments_Recent@r1', 'pageSize=5', 'ignoreAuthor=true')->to($comments); ?>
+                    <?php $this->widget('Widget_Comments_Recent', 'ignoreAuthor=true&pageSize=5')->to($comments); ?>
                     <?php while ($comments->next()) : ?>
                         <li>
                             <div class="user">
@@ -124,7 +124,7 @@
                 </ul>
             </div>
         <?php endif; ?>
-        
+
         <!-- 侧边栏 云标签 -->
         <?php if (!empty($this->options->JAsideBlock) && in_array('ShowAside3DTag', $this->options->JAsideBlock)) : ?>
             <div class="aside aside-cloud">
