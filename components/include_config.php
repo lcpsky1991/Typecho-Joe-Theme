@@ -3,9 +3,11 @@
     <script src="<?php $this->options->themeUrl('plugin/jquery/jquery.min.js'); ?>"></script>
     <!-- 图片懒加载  -->
     <script src="<?php $this->options->themeUrl('plugin/lazyload/lazyload.min.js'); ?>"></script>
+    <script src="<?php $this->options->themeUrl('plugin/cookie/cookie.min.js'); ?>"></script>
 <?php else : ?>
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/jquery/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/lazyload/lazyload.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/cookie/cookie.min.js"></script>
 <?php endif; ?>
 
 
@@ -76,3 +78,6 @@
 
 <!-- <16> 启用 禁用 返回顶部按钮 -->
 <?php $this->need('config/BackTop.php'); ?>
+
+<!-- <17> 启用 禁用 站点公告 -->
+<?php $this->need('config/Alert.php'); ?>

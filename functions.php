@@ -56,7 +56,7 @@ function themeConfig($form)
     $form->addInput($JFavicon);
 
 
-    $JLogo = new Typecho_Widget_Helper_Form_Element_Textarea('JLogo', NULL, NULL, _t('2. 自定义Logo（非必填）'), _t('介绍：用于修改网站顶部状态栏的 Logo 图标。格式要求：URL 或 Base64'));
+    $JLogo = new Typecho_Widget_Helper_Form_Element_Textarea('JLogo', NULL, NULL, _t('2. 自定义Logo（非必填）'), _t('介绍：用于修改网站顶部状态栏的 Logo 图标。格式要求：URL 或 Base64，免费生成网址：<a target="_blank" href="http://www.uugai.com">http://www.uugai.com</a>'));
     $JLogo->setAttribute('class', 'j-content j-global');
     $form->addInput($JLogo);
 
@@ -173,9 +173,13 @@ function themeConfig($form)
     $JCDN->setAttribute('class', 'j-content j-global');
     $form->addInput($JCDN->multiMode());
 
-    $Jmos = new Typecho_Widget_Helper_Form_Element_Textarea('Jmos', NULL, NULL, _t('11. 默认缩略图设置'), _t('填写图片地址，一行一个图片地址，文章中没有图片时将随机使用这里面的图片地址，不填写则使用程序内置的图片'));
+    $Jmos = new Typecho_Widget_Helper_Form_Element_Textarea('Jmos', NULL, NULL, _t('11. 默认缩略图（非必填）'), _t('填写图片地址，一行一个图片地址，文章中没有图片时将随机使用这里面的图片地址，不填写则使用程序内置的图片'));
     $Jmos->setAttribute('class', 'j-content j-global');
     $form->addInput($Jmos);
+
+    $JAlert = new Typecho_Widget_Helper_Form_Element_Textarea('JAlert', NULL, NULL, _t('12. 弹窗公告（非必填）'), _t('介绍：如果填写，则进入网站后会弹出一个公告，如果不填则不弹出'));
+    $JAlert->setAttribute('class', 'j-content j-global');
+    $form->addInput($JAlert);
 
 
     /* 侧边栏控制 */
