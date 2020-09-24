@@ -54,28 +54,22 @@
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="timeline" id="timeline">
-                        <?php $this->widget('Widget_Contents_Post_Recent@sb66', 'pageSize=10000')->to($archives);
-                        $year = 0;
-                        $mon = 0;
-                        $i = 0;
-                        $j = 0;
-                        while ($archives->next()) :
-                            $year_tmp = date('Y', $archives->created);
-                            $mon_tmp = date('m', $archives->created);
-                            if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></div>';
-                            if ($year != $year_tmp && $year > 0) $output .= '</ul></div>';
-                            if ($mon != $mon_tmp) {
-                                $mon = $mon_tmp;
-                                $output .= '<div class="item"><span>' . $year_tmp . '年' . $mon_tmp . '月</span><ul>';
-                            }
-                            $output .= '<li><a href="' . $archives->permalink . '">' . $archives->title . '</a>';
-                            $output .= '</li>';
-                        endwhile;
-                        $output .= '</ul></div>';
-                        echo $output;
-                        ?>
-                    </div>
+
+                    <ul class="timeline">
+                        <?php $this->widget('Widget_Contents_Post_Recent@sb66', 'pageSize=10000')->to($archives); ?>
+                        <?php while ($archives->next()) : ?>
+                            <li>
+                                <a href="<?php $archives->permalink(); ?>" class="content">
+                                    <img class="lazyload" src="<?php $this->options->themeUrl('assets/img/lazyload.jpg'); ?>" data-original="<?php showThumbnail($archives); ?>">
+                                    <h3><?php $archives->date('Y/m/d'); ?></h3>
+                                    <div class="info">
+                                        <p><?php $archives->title(); ?></p>
+                                        <span><?php get_post_view($archives); ?> 阅读 <?php $archives->commentsNum('%d'); ?> 回复</span>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
                 </div>
             </div>
             <?php $this->need('components/common_aside.php'); ?>

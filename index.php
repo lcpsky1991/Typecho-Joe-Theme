@@ -5,7 +5,7 @@
  * 
  * @package Typecho_Joe_Theme 
  * @author Joe
- * @version 1.1.4
+ * @version 1.1.5
  * @link //ae.js.cn
  */
 
@@ -131,7 +131,7 @@
 
     <!-- 弹幕列表 -->
     <ul class="j-barrager-list">
-        <?php $this->widget('Widget_Comments_Recent@r2', 'pageSize=10000000', 'ignoreAuthor=true')->to($comments); ?>
+        <?php $this->widget('Widget_Comments_Recent@sb399', 'ignoreAuthor=true')->to($comments); ?>
         <?php while ($comments->next()) : ?>
             <li>
                 <span class="j-barrager-list-avatar" data-src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100"></span>

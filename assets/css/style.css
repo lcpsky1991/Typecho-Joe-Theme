@@ -1618,78 +1618,102 @@ img:not([src]) {
   background: #fff;
 }
 
-.j-article .mainer .contain .timeline {
+.j-article .mainer .contain .timeline li {
+  position: relative;
+  width: 3px;
+  margin: 0 auto;
+  background: var(--theme-color);
+  padding: 0 0 16px 0;
+}
+
+.j-article .mainer .contain .timeline li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  z-index: 2;
+  border: 2px solid var(--theme-color);
+  border-radius: 50%;
   background: #fff;
 }
 
-.j-article .mainer .contain .timeline .item {
+.j-article .mainer .contain .timeline li:nth-of-type(odd) a {
+  left: 25px;
+  transform: translate3d(100px, -10px, 0) rotate(10deg);
+}
+
+.j-article .mainer .contain .timeline li:nth-of-type(even) a {
+  left: -325px;
+  transform: translate3d(-100px, -10px, 0) rotate(10deg);
+}
+
+.j-article .mainer .contain .timeline li a {
+  visibility: hidden;
+  opacity: 0;
   position: relative;
-  padding: 0 0 30px 25px;
+  display: block;
+  width: 300px;
+  height: 150px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.35s ease-in-out;
 }
 
-.j-article .mainer .contain .timeline .item:last-child {
-  padding-bottom: 0;
+.j-article .mainer .contain .timeline li a.active {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
 }
 
-.j-article .mainer .contain .timeline .item::before {
-  content: '';
-  position: absolute;
-  top: 9px;
-  left: 0;
-  width: 13px;
-  height: 13px;
-  background: #eee;
-  border-radius: 50%;
-  z-index: 5;
+.j-article .mainer .contain .timeline li a:hover {
+  transform: translate3d(0, -10px, 0);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.j-article .mainer .contain .timeline .item::after {
-  content: '';
-  position: absolute;
-  top: 9px;
-  left: 6px;
-  width: 1px;
+.j-article .mainer .contain .timeline li a img {
+  width: 100%;
   height: 100%;
-  background: #ebebeb;
-  border-radius: 50%;
+  object-fit: cover;
 }
 
-.j-article .mainer .contain .timeline .item span {
-  display: block;
-  font-size: 20px;
-  color: #303133;
-  font-weight: 500;
-  line-height: 30px;
-  margin-bottom: 15px;
-  user-select: none;
+.j-article .mainer .contain .timeline li a h3 {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: var(--theme-color);
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 2px;
 }
 
-.j-article .mainer .contain .timeline .item ul {
-  padding-left: 15px;
+.j-article .mainer .contain .timeline li a .info {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background: linear-gradient(to bottom, rgba(6, 6, 6, 0), rgba(6, 6, 6, 0.7));
+  font-size: 12px;
 }
 
-.j-article .mainer .contain .timeline .item ul li {
-  display: none;
-  margin-bottom: 10px;
-}
-
-.j-article .mainer .contain .timeline .item ul li.fadeIn {
-  display: block;
-  animation: fadeIn 0.5s;
-}
-
-.j-article .mainer .contain .timeline .item ul li a {
-  color: #555;
+.j-article .mainer .contain .timeline li a .info p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  line-height: 24px;
   font-size: 14px;
 }
 
-.j-article .mainer .contain .timeline .item ul li a:hover {
-  color: var(--theme-color);
-  text-decoration: underline;
-}
-
-.j-article .mainer .contain .timeline .item ul li:last-child {
-  margin-bottom: 0;
+.j-article .mainer .contain .timeline li a .info span {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .j-article .mainer .contain .page {

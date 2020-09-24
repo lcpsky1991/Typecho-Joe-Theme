@@ -12,13 +12,45 @@
             })
         })
 
-        if ($('#timeline').length > 0) {
-            $('#timeline .item li').each(function(i, item) {
-                setTimeout(() => {
-                    $(item).addClass('fadeIn');
-                }, 100 * i);
-            });
+        /* 归档按顺序依次进入 */
+        function isOnScreen(el) {
+            var win = $(window);
+            var viewport = {
+                top: win.scrollTop(),
+                left: win.scrollLeft()
+            };
+            viewport.right = viewport.left + win.width();
+            viewport.bottom = viewport.top + win.height();
+            var bounds = el.offset();
+            bounds.right = bounds.left + el.outerWidth();
+            bounds.bottom = bounds.top + el.outerHeight();
+            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
         }
+
+        $(".timeline li").each((i, item) => {
+            if (isOnScreen($(item))) {
+                $(item).find("a").addClass("active")
+            } else {
+                $(item).find("a").removeClass("active")
+            }
+        })
+
+        $(window).on("scroll", function() {
+            $(".timeline li").each((i, item) => {
+                if (isOnScreen($(item))) {
+                    $(item).find("a").addClass("active")
+                } else {
+                    $(item).find("a").removeClass("active")
+                }
+            })
+        })
+
+
+
+
+
+
+
 
 
         /* 点击关闭图片预览 */

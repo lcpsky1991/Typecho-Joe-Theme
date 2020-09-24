@@ -111,7 +111,7 @@
                     <?php while ($hot->next()) : ?>
                         <li>
                             <a href="<?php $hot->permalink(); ?>" title="<?php $hot->title(); ?>">
-                                <img class="lazyload" src="<?php $this->options->themeUrl('assets/img/lazyload.jpg'); ?>" data-original="<?php showThumbnail($hot); ?>">
+                                <img class="lazyload" src="<?php showThumbnail($hot); ?>">
                                 <div class="info">
                                     <p><?php $hot->title(); ?></p>
                                     <span><?php get_post_view($hot); ?> 阅读，<?php $hot->date('m/d'); ?></span>
