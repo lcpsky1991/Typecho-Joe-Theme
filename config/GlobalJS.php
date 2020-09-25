@@ -129,6 +129,7 @@
             $("#commentType button").removeClass("active")
             $(this).addClass("active")
             if ($(this).attr("data-type") === "canvas") {
+                $("#commentTypeContent canvas").prop("width", $("#commentTypeContent").width())
                 $("#commentTypeContent textarea").hide()
                 $("#commentTypeContent .canvas").show()
                 $("#commentTypeContent .canvas").attr("data-type", "canvas")
@@ -155,31 +156,24 @@
             $(".replyContent").show()
         })
 
-
-
         /* 评论验证 */
         $("#comment-form").on("submit", function(e) {
-
             if ($("#comment-nick").val().trim() === "") {
                 e.preventDefault()
                 return alert("请输入昵称")
             }
-
             if (!/\d{5,11}/.test($("#comment-qq").val())) {
                 e.preventDefault()
                 return alert("请输入正确的QQ")
             }
-
             if ($("#commentTypeContent .canvas").attr("data-type") === "canvas") {
                 let url = $('#commentTypeContent canvas')[0].toDataURL('image/png');
                 $("#comment-content").val("{!{" + url + "}!} ")
             }
-
             if ($("#comment-content").val().trim() === "") {
                 e.preventDefault()
                 return alert("请输入内容")
             }
-
         })
 
         /* 页面点击事件类 */
