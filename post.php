@@ -80,7 +80,7 @@
                     <?php $this->thePrev('<li class="right">%s</li>', '', ['title' => '下一篇']); ?>
                 </ul>
 
-                <?php $this->need('components/common_comment.php'); ?>
+                <?php $this->need('components/common_comments.php'); ?>
             </div>
             <?php $this->need('components/common_aside.php'); ?>
         </div>
