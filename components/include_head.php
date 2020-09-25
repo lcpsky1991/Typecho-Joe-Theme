@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
 
 <!-- 自有函数 -->
-<?php $this->header('commentReply='); ?>
+<?php $this->header(); ?>
 
 
 <?php if ($this->options->JCDN == 'close') : ?>

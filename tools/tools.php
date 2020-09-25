@@ -76,6 +76,17 @@ class Widget_Post_hot extends Widget_Abstract_Contents
     }
 }
 
+function reply($parent)
+{
+    if ($parent == 0) {
+        return '';
+    }
+    $db = Typecho_Db::get();
+    $commentInfo = $db->fetchRow($db->select('author,status,mail')->from('table.comments')->where('coid = ?', $parent));
+    $link = '<div class="parent">@' . $commentInfo['author'] .  '</div>';
+    return $link;
+}
+
 /* 随机图片 */
 function showThumbnail($widget)
 {

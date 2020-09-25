@@ -12,6 +12,8 @@
             })
         })
 
+     
+
         /* 归档按顺序依次进入 */
         function isOnScreen(el) {
             var win = $(window);

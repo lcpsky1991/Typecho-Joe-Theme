@@ -56,7 +56,7 @@
                         <?php $this->need('components/common_banquan.php'); ?>
                     <?php endif; ?>
                 </div>
-                <?php $this->need('components/common_comment.php'); ?>
+                <?php $this->need('components/common_comments.php'); ?>
             </div>
             <?php $this->need('components/common_aside.php'); ?>
         </div>
