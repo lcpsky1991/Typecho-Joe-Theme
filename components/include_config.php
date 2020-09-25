@@ -4,10 +4,12 @@
     <!-- 图片懒加载  -->
     <script src="<?php $this->options->themeUrl('plugin/lazyload/lazyload.min.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('plugin/cookie/cookie.min.js'); ?>"></script>
+    <script src="<?php $this->options->themeUrl('plugin/canvas/canvas.min.js'); ?>"></script>
 <?php else : ?>
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/jquery/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/lazyload/lazyload.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/cookie/cookie.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/canvas/canvas.min.js"></script>
 <?php endif; ?>
 
 
@@ -81,3 +83,11 @@
 
 <!-- <17> 启用 禁用 站点公告 -->
 <?php $this->need('config/Alert.php'); ?>
+
+
+<!-- <18> 启用 禁用 自定义JS -->
+<?php if ($this->options->JScript) : ?>
+    <script>
+        <?php $this->options->JScript() ?>
+    </script>
+<?php endif; ?>

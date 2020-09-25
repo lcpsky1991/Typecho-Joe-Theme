@@ -49,12 +49,6 @@
 
 
 
-
-
-
-
-
-
         /* 点击关闭图片预览 */
         $(".j-preview").on("click", function() {
             $(this).removeClass("active")
@@ -95,6 +89,10 @@
         });
 
 
+
+
+
+
         /* 文章详情页标题打字机效果 */
         if ($("#postTitle").length > 0) {
             let str = $('#postTitleHtml').html();
@@ -124,20 +122,64 @@
             }
         })
 
+        /* 切换按钮 */
+        $("#commentTypeContent canvas").prop("width", $("#commentTypeContent").width())
+        $("#commentTypeContent canvas").prop("height", 250)
+        $("#commentType button").on("click", function() {
+            $("#commentType button").removeClass("active")
+            $(this).addClass("active")
+            if ($(this).attr("data-type") === "canvas") {
+                $("#commentTypeContent textarea").hide()
+                $("#commentTypeContent .canvas").show()
+                $("#commentTypeContent .canvas").attr("data-type", "canvas")
+            } else {
+                $("#commentTypeContent textarea").show()
+                $("#commentTypeContent .canvas").hide()
+                $("#commentTypeContent .canvas").attr("data-type", "text")
+            }
+        })
+
+        $(".j-comments .meta a").on("click", function() {
+            $("#commentTypeContent canvas").prop("width", $("#commentTypeContent").width())
+        })
+
+        /* 判断是否是canvas图片 */
+        $(".replyContent p").each(function(i, item) {
+            let str = $(item).html()
+            if (/\{!\{.*\}!\}/.test(str)) {
+                str = str.match(/{!{.*}!}/)[0].replace(/{!{/, "").replace(/}!}/, "")
+                $(item).html(`<img class="canvas" src="${str}" />`)
+            } else {
+                $(item).html(str)
+            }
+            $(".replyContent").show()
+        })
+
+
+
         /* 评论验证 */
         $("#comment-form").on("submit", function(e) {
+
             if ($("#comment-nick").val().trim() === "") {
                 e.preventDefault()
                 return alert("请输入昵称")
             }
-            if ($("#comment-content").val().trim() === "") {
-                e.preventDefault()
-                return alert("请输入内容")
-            }
+
             if (!/\d{5,11}/.test($("#comment-qq").val())) {
                 e.preventDefault()
                 return alert("请输入正确的QQ")
             }
+
+            if ($("#commentTypeContent .canvas").attr("data-type") === "canvas") {
+                let url = $('#commentTypeContent canvas')[0].toDataURL('image/png');
+                $("#comment-content").val("{!{" + url + "}!} ")
+            }
+
+            if ($("#comment-content").val().trim() === "") {
+                e.preventDefault()
+                return alert("请输入内容")
+            }
+
         })
 
         /* 页面点击事件类 */

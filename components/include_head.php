@@ -48,3 +48,9 @@
         <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/img/favicon.ico" />
     <?php endif; ?>
 <?php endif; ?>
+
+<?php if ($this->options->JCss) : ?>
+    <style>
+        <?php $this->options->JCss() ?>
+    </style>
+<?php endif; ?>

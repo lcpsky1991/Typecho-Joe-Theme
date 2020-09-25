@@ -181,6 +181,13 @@ function themeConfig($form)
     $JAlert->setAttribute('class', 'j-content j-global');
     $form->addInput($JAlert);
 
+    $JScript = new Typecho_Widget_Helper_Form_Element_Textarea('JScript', NULL, NULL, _t('13. 自定义JS（非必填）'), _t('介绍：请填写自定义JS内容，例如网站统计等，填写时无需填写script标签。非专业人员请勿填写！'));
+    $JScript->setAttribute('class', 'j-content j-global');
+    $form->addInput($JScript);
+
+    $JCss = new Typecho_Widget_Helper_Form_Element_Textarea('JCss', NULL, NULL, _t('14. 自定义CSS（非必填）'), _t('介绍：请填写自定义CSS内容，填写时无需填写style标签。非专业人员请勿填写！'));
+    $JCss->setAttribute('class', 'j-content j-global');
+    $form->addInput($JCss);
 
     /* 侧边栏控制 */
     $JAsideBlock = new Typecho_Widget_Helper_Form_Element_Checkbox(

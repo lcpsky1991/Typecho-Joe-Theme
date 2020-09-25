@@ -1978,7 +1978,6 @@ img:not([src]) {
 .j-comment {
   position: relative;
   margin-bottom: 20px;
-  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -1989,7 +1988,7 @@ img:not([src]) {
 .j-comment form .head {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .j-comment form .head input {
@@ -2029,12 +2028,16 @@ img:not([src]) {
   right: 0;
 }
 
-.j-comment form .body {
+.j-comment form .content {
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.j-comment form .content textarea {
   background-color: transparent;
   width: 100%;
   height: 120px;
   border: none;
-  padding: 10px 20px;
   resize: none;
   vertical-align: middle;
   background: url(../img/comment.png) right bottom no-repeat;
@@ -2043,8 +2046,79 @@ img:not([src]) {
   color: #666;
 }
 
-.j-comment form .body:focus {
+.j-comment form .content textarea:focus {
   background-position-y: 120px;
+}
+
+.j-comment form .content .canvas {
+  position: relative;
+  width: 100%;
+}
+
+.j-comment form .content .canvas canvas {
+  cursor: url("../img/pencil.png") 13 23, crosshair;
+  background: #fff;
+  transition: box-shadow 0.35s;
+}
+
+.j-comment form .content .canvas canvas:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.j-comment form .content .canvas ol {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.j-comment form .content .canvas ol li {
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: all 0.35s;
+}
+
+.j-comment form .content .canvas ol li.active {
+  color: var(--theme-color);
+}
+
+.j-comment form .content .canvas ul {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+}
+
+.j-comment form .content .canvas ul li {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.35s;
+}
+
+.j-comment form .content .canvas ul li:nth-child(1) {
+  background: #000000;
+}
+
+.j-comment form .content .canvas ul li:nth-child(2) {
+  background: #ff0000;
+}
+
+.j-comment form .content .canvas ul li:nth-child(3) {
+  background: #80ff00;
+}
+
+.j-comment form .content .canvas ul li:nth-child(4) {
+  background: #00ffff;
+}
+
+.j-comment form .content .canvas ul li.active {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .j-comment form .foot {
@@ -2079,6 +2153,33 @@ img:not([src]) {
 
 .j-comment form .foot button:hover {
   opacity: 0.85;
+}
+
+.j-comment .change {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.j-comment .change button {
+  background: #f8f8f8;
+  padding: 7px 15px;
+  border: none;
+  font-size: 14px;
+  transition: all 0.35s;
+}
+
+.j-comment .change button.active {
+  color: #fff;
+  background: var(--theme-color);
+}
+
+.j-comment .change button:first-child {
+  border-top-left-radius: 6px;
+}
+
+.j-comment .change button:last-child {
+  border-top-right-radius: 6px;
 }
 
 .j-comments {
@@ -2165,6 +2266,7 @@ img:not([src]) {
 }
 
 .j-comments .comment-list li .item .right .content {
+  display: none;
   width: 100%;
   background: #f4f6fb;
   padding: 10px 15px;
@@ -2185,6 +2287,12 @@ img:not([src]) {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.j-comments .comment-list li .item .right .content p .canvas {
+  width: 100%;
 }
 
 .j-comments .comment-list li .item .right .meta {

@@ -1742,14 +1742,13 @@ img:not([src]) {
 .j-comment {
     position: relative;
     margin-bottom: 20px;
-    border-radius: 4px;
     overflow: hidden;
     form {
         background: #f8f8f8;
         .head {
             display: flex;
             align-items: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eee;
             input {
                 flex: 1;
                 border: none;
@@ -1783,22 +1782,84 @@ img:not([src]) {
                 }
             }
         }
-        .body {
-            background-color: transparent;
-            width: 100%;
-            height: 120px;
-            border: none;
-            padding: 10px 20px;
-            resize: none;
-            vertical-align: middle;
-            background: url(../img/comment.png) right bottom no-repeat;
-            font-size: 14px;
-            transition: all 0.45s;
-            color: #666;
-            &:focus {
-                background-position-y: 120px;
+        .content {
+            padding: 20px;
+            padding-bottom: 0;
+            textarea {
+                background-color: transparent;
+                width: 100%;
+                height: 120px;
+                border: none;
+                resize: none;
+                vertical-align: middle;
+                background: url(../img/comment.png) right bottom no-repeat;
+                font-size: 14px;
+                transition: all 0.45s;
+                color: #666;
+                &:focus {
+                    background-position-y: 120px;
+                }
+            }
+            .canvas {
+                position: relative;
+                width: 100%;
+                canvas {
+                    cursor: url('../img/pencil.png') 13 23, crosshair;
+                    background: #fff;
+                    transition: box-shadow 0.35s;
+                    &:hover {
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+                    }
+                }
+                ol {
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    display: flex;
+                    align-items: center;
+                    li {
+                        cursor: pointer;
+                        font-size: 14px;
+                        margin-left: 10px;
+                        transition: all 0.35s;
+                        &.active {
+                            color: $baseColor;
+                        }
+                    }
+                }
+                ul {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    display: flex;
+                    li {
+                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        transition: all 0.35s;
+                        &:nth-child(1) {
+                            background: #000000;
+                        }
+                        &:nth-child(2) {
+                            background: #ff0000;
+                        }
+                        &:nth-child(3) {
+                            background: #80ff00;
+                        }
+                        &:nth-child(4) {
+                            background: #00ffff;
+                        }
+                        &.active {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+                        }
+                    }
+                }
             }
         }
+
         .foot {
             display: flex;
             align-items: center;
@@ -1825,6 +1886,28 @@ img:not([src]) {
                 &:hover {
                     opacity: 0.85;
                 }
+            }
+        }
+    }
+    .change {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        button {
+            background: #f8f8f8;
+            padding: 7px 15px;
+            border: none;
+            font-size: 14px;
+            transition: all 0.35s;
+            &.active {
+                color: #fff;
+                background: $baseColor;
+            }
+            &:first-child {
+                border-top-left-radius: 6px;
+            }
+            &:last-child {
+                border-top-right-radius: 6px;
             }
         }
     }
@@ -1901,6 +1984,7 @@ img:not([src]) {
                         }
                     }
                     .content {
+                        display: none;
                         width: 100%;
                         background: #f4f6fb;
                         padding: 10px 15px;
@@ -1918,6 +2002,11 @@ img:not([src]) {
                             display: flex;
                             flex-wrap: wrap;
                             align-items: center;
+                            word-break: break-all;
+                            white-space: pre-wrap;
+                            .canvas {
+                                width: 100%;
+                            }
                         }
                     }
                     .meta {
