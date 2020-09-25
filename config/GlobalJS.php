@@ -12,7 +12,7 @@
             })
         })
 
-     
+
 
         /* 归档按顺序依次进入 */
         function isOnScreen(el) {
@@ -114,11 +114,10 @@
 
         /* 输入QQ号时候的验证 */
         $("#comment-qq").on("input", function() {
-            let val = $(this).val()
-            $(this).val(val.replace(/[^0-9]/g, ''));
-            if (/\d{5,11}/.test(val)) {
-                $("#comment-mail").val(val + "@qq.com")
-                $("#comment-avatar").attr("src", "//q.qlogo.cn/g?b=qq&nk=" + val + "&s=100")
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            if (/\d{5,11}/.test($(this).val())) {
+                $("#comment-mail").val($(this).val() + "@qq.com")
+                $("#comment-avatar").attr("src", "//q.qlogo.cn/g?b=qq&nk=" + $(this).val() + "&s=100")
             } else {
                 $("#comment-mail").val("")
                 $("#comment-avatar").attr("src", "<?php $this->options->themeUrl('assets/img/nouser.png'); ?>")
@@ -126,7 +125,7 @@
         })
 
         /* 评论验证 */
-        $("#comment").on("submit", function(e) {
+        $("#comment-form").on("submit", function(e) {
             if ($("#comment-nick").val().trim() === "") {
                 e.preventDefault()
                 return alert("请输入昵称")

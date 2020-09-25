@@ -22,7 +22,7 @@
 
                     <!-- 座右铭 -->
                     <?php if ($this->options->JMotto) : ?>
-                        <p><?php $this->options->JMotto(); ?></p>
+                        <p><?php showAsideAuthorRemark(); ?></p>
                     <?php else : ?>
                         <p>人生之路，难免坎坷，但我执着</p>
                     <?php endif; ?>

@@ -119,11 +119,11 @@ function themeConfig($form)
     $form->addInput($JLive2D->multiMode());
 
 
-    $JDocumentPCBG = new Typecho_Widget_Helper_Form_Element_Text('JDocumentPCBG', NULL, NULL, _t('6. PC端网站背景图片（非必填）'), _t('若您想使用自定义图片，请先关闭下方的canvas背景，否则该项不会起作用。介绍：PC端网站的背景图片，不填写时显示默认的灰色。填写时请填写图片地址 或 随机图片api 例如：http://api.btstu.cn/sjbz/?lx=dongman'));
+    $JDocumentPCBG = new Typecho_Widget_Helper_Form_Element_Textarea('JDocumentPCBG', NULL, NULL, _t('6. PC端网站背景图片（非必填）'), _t('若您想使用自定义图片，请先关闭下方的canvas背景，否则该项不会起作用。介绍：PC端网站的背景图片，不填写时显示默认的灰色。填写时请填写图片地址 或 随机图片api 例如：http://api.btstu.cn/sjbz/?lx=dongman'));
     $JDocumentPCBG->setAttribute('class', 'j-content j-global');
     $form->addInput($JDocumentPCBG);
 
-    $JDocumentWAPBG = new Typecho_Widget_Helper_Form_Element_Text('JDocumentWAPBG', NULL, NULL, _t('7. WAP端网站背景图片（非必填）'), _t('若您想使用自定义图片，请先关闭下方的canvas背景，否则该项不会起作用。介绍：WAP端网站的背景图片，不填写时显示默认的灰色。填写时请填写图片地址 或 随机图片api 例如：http://api.btstu.cn/sjbz/?lx=m_dongman'));
+    $JDocumentWAPBG = new Typecho_Widget_Helper_Form_Element_Textarea('JDocumentWAPBG', NULL, NULL, _t('7. WAP端网站背景图片（非必填）'), _t('若您想使用自定义图片，请先关闭下方的canvas背景，否则该项不会起作用。介绍：WAP端网站的背景图片，不填写时显示默认的灰色。填写时请填写图片地址 或 随机图片api 例如：http://api.btstu.cn/sjbz/?lx=m_dongman'));
     $JDocumentWAPBG->setAttribute('class', 'j-content j-global');
     $form->addInput($JDocumentWAPBG);
 
@@ -203,12 +203,12 @@ function themeConfig($form)
     $JQQ->setAttribute('class', 'j-content j-aside');
     $form->addInput($JQQ);
 
-    $JQQLink = new Typecho_Widget_Helper_Form_Element_Text('JQQLink', NULL, NULL, _t('2-1. 作者信息 —— 点击昵称跳转链接（非必填）'), _t('请填写URL地址，如果不填写则默认跳转到联系QQ'));
+    $JQQLink = new Typecho_Widget_Helper_Form_Element_Textarea('JQQLink', NULL, NULL, _t('2-1. 作者信息 —— 点击昵称跳转链接（非必填）'), _t('请填写URL地址，如果不填写则默认跳转到联系QQ'));
     $JQQLink->setAttribute('class', 'j-content j-aside');
     $form->addInput($JQQLink);
 
 
-    $JMotto = new Typecho_Widget_Helper_Form_Element_Text('JMotto', NULL, NULL, _t('2-2. 作者信息 —— 座右铭（非必填）'), _t('请填写一个座右铭或激励的文案，字数建议控制在15字以内'));
+    $JMotto = new Typecho_Widget_Helper_Form_Element_Textarea('JMotto', NULL, NULL, _t('2-2. 作者信息 —— 座右铭（非必填）'), _t('介绍：用于显示在侧边栏作者信息的座右铭。格式：可以填写多行也可以填写一行，填写多行时，每次随机显示其中的某一条'));
     $JMotto->setAttribute('class', 'j-content j-aside');
     $form->addInput($JMotto);
 
@@ -218,22 +218,22 @@ function themeConfig($form)
     $form->addInput($JWetherKey);
 
 
-    $JADContent1 = new Typecho_Widget_Helper_Form_Element_Text('JADContent1', NULL, NULL, _t('4-1. 广告1 —— 图片地址（非必填）'), _t('如果不写，则代表不显示这个广告'));
+    $JADContent1 = new Typecho_Widget_Helper_Form_Element_Textarea('JADContent1', NULL, NULL, _t('4-1. 广告1 —— 图片地址（非必填）'), _t('如果不写，则代表不显示这个广告'));
     $JADContent1->setAttribute('class', 'j-content j-aside');
     $form->addInput($JADContent1);
 
 
-    $JADContent1Link = new Typecho_Widget_Helper_Form_Element_Text('JADContent1Link', NULL, NULL, _t('4-2. 广告1 —— 跳转地址（非必填）'), _t('请填写广告1的跳转链接'));
+    $JADContent1Link = new Typecho_Widget_Helper_Form_Element_Textarea('JADContent1Link', NULL, NULL, _t('4-2. 广告1 —— 跳转地址（非必填）'), _t('请填写广告1的跳转链接'));
     $JADContent1Link->setAttribute('class', 'j-content j-aside');
     $form->addInput($JADContent1Link);
 
 
-    $JADContent2 = new Typecho_Widget_Helper_Form_Element_Text('JADContent2', NULL, NULL, _t('5-1. 广告2 —— 图片地址（非必填）'), _t('如果不写，则代表不显示这个广告'));
+    $JADContent2 = new Typecho_Widget_Helper_Form_Element_Textarea('JADContent2', NULL, NULL, _t('5-1. 广告2 —— 图片地址（非必填）'), _t('如果不写，则代表不显示这个广告'));
     $JADContent2->setAttribute('class', 'j-content j-aside');
     $form->addInput($JADContent2);
 
 
-    $JADContent2Link = new Typecho_Widget_Helper_Form_Element_Text('JADContent2Link', NULL, NULL, _t('5-2. 广告2 —— 跳转地址（非必填）'), _t('请填写广告2的跳转链接'));
+    $JADContent2Link = new Typecho_Widget_Helper_Form_Element_Textarea('JADContent2Link', NULL, NULL, _t('5-2. 广告2 —— 跳转地址（非必填）'), _t('请填写广告2的跳转链接'));
     $JADContent2Link->setAttribute('class', 'j-content j-aside');
     $form->addInput($JADContent2Link);
 
@@ -272,19 +272,19 @@ function themeConfig($form)
     $form->addInput($JIndexBlock->multiMode());
 
 
-    $JIndexNotice = new Typecho_Widget_Helper_Form_Element_Text('JIndexNotice', NULL, NULL, _t('2-1. 首页公告文字（非必填）'), _t('如果不填写这项，则不显示公告'));
+    $JIndexNotice = new Typecho_Widget_Helper_Form_Element_Textarea('JIndexNotice', NULL, NULL, _t('2-1. 首页公告文字（非必填）'), _t('如果不填写这项，则不显示公告'));
     $JIndexNotice->setAttribute('class', 'j-content j-index');
     $form->addInput($JIndexNotice);
 
-    $JIndexNoticeLink = new Typecho_Widget_Helper_Form_Element_Text('JIndexNoticeLink', NULL, NULL, _t('2-2. 首页公告链接（非必填）'), _t('点击公告后的url跳转链接'));
+    $JIndexNoticeLink = new Typecho_Widget_Helper_Form_Element_Textarea('JIndexNoticeLink', NULL, NULL, _t('2-2. 首页公告链接（非必填）'), _t('点击公告后的url跳转链接'));
     $JIndexNoticeLink->setAttribute('class', 'j-content j-index');
     $form->addInput($JIndexNoticeLink);
 
-    $JIndexAD = new Typecho_Widget_Helper_Form_Element_Text('JIndexAD', NULL, NULL, _t('3-1. 首页广告图（非必填）'), _t('如果不填写这项，则不显示广告图片'));
+    $JIndexAD = new Typecho_Widget_Helper_Form_Element_Textarea('JIndexAD', NULL, NULL, _t('3-1. 首页广告图（非必填）'), _t('如果不填写这项，则不显示广告图片'));
     $JIndexAD->setAttribute('class', 'j-content j-index');
     $form->addInput($JIndexAD);
 
-    $JIndexADLink = new Typecho_Widget_Helper_Form_Element_Text('JIndexADLink', NULL, NULL, _t('3-2. 首页广告跳转链接（非必填）'), _t('点击广告后的url跳转链接'));
+    $JIndexADLink = new Typecho_Widget_Helper_Form_Element_Textarea('JIndexADLink', NULL, NULL, _t('3-2. 首页广告跳转链接（非必填）'), _t('点击广告后的url跳转链接'));
     $JIndexADLink->setAttribute('class', 'j-content j-index');
     $form->addInput($JIndexADLink);
 

@@ -76,6 +76,7 @@ class Widget_Post_hot extends Widget_Abstract_Contents
     }
 }
 
+/* 获取父级的评论 */
 function reply($parent)
 {
     if ($parent == 0) {
@@ -85,6 +86,15 @@ function reply($parent)
     $commentInfo = $db->fetchRow($db->select('author,status,mail')->from('table.comments')->where('coid = ?', $parent));
     $link = '<div class="parent">@' . $commentInfo['author'] .  '</div>';
     return $link;
+}
+
+function showAsideAuthorRemark()
+{
+    if (Helper::options()->JMotto) {
+        $JMottoRandom = explode("\r\n", Helper::options()->JMotto);
+        $random = $JMottoRandom[array_rand($JMottoRandom, 1)];
+        echo $random;
+    }
 }
 
 /* 随机图片 */

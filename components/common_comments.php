@@ -42,7 +42,7 @@ function threadedComments($comments, $options)
         <div id="<?php $this->respondId(); ?>" class="respond j-comment">
             <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
                 <div class="head">
-                    <input type="text" autocomplete="off" name="author" id="comment-nick" maxlength="16" placeholder="昵称：请输入昵称（必填）">
+                    <input type="text" <?php if ($this->user->hasLogin()) : ?> value="<?php $this->user->screenName(); ?>" <?php else : ?> value="<?php $this->remember('author'); ?>" <?php endif; ?> autocomplete="off" name="author" id="comment-nick" maxlength="16" placeholder="昵称：请输入昵称（必填）">
                     <div class="line">
                         <input autocomplete="off" type="text" maxlength="10" id="comment-qq" placeholder="QQ：请输入QQ（必填）">
                     </div>
