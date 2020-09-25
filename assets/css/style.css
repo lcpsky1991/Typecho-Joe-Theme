@@ -2039,7 +2039,9 @@ img:not([src]) {
   padding: 30px 15px;
   flex: 1;
   background: #fff;
-  max-height: 400px;
+  min-height: 179px;
+  max-height: 179px;
+  height: 179px;
   overflow-y: auto;
   font-size: 14px;
   color: #333;
