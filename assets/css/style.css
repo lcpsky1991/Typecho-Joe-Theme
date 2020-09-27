@@ -113,7 +113,7 @@ img:not([src]) {
   top: 0;
   left: 0;
   right: 0;
-  transition: all 0.35s;
+  transition: transform 0.35s;
   background: #fff;
   box-shadow: 0 5px 40px 0 rgba(17, 58, 93, 0.1);
   z-index: 9999;
@@ -127,7 +127,7 @@ img:not([src]) {
 .j-header .above .logo {
   display: flex;
   align-items: center;
-  margin-right: 24px;
+  margin-right: 20px;
 }
 
 .j-header .above .logo img {
@@ -140,13 +140,13 @@ img:not([src]) {
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
-  margin-right: 24px;
+  margin-right: 20px;
 }
 
 .j-header .above .link a {
   position: relative;
   padding: 0 8px;
-  margin: 0 12px;
+  margin-right: 20px;
   height: 60px;
   line-height: 60px;
   white-space: nowrap;
@@ -183,10 +183,6 @@ img:not([src]) {
 .j-header .above .link a:hover::after {
   opacity: 1;
   transform: scaleX(1);
-}
-
-.j-header .above .link a:first-child {
-  margin-left: 0;
 }
 
 .j-header .above .link a:last-child {

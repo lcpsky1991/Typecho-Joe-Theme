@@ -29,8 +29,11 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('plugin/prism/prism.min.css'); ?>" />
     <script src="<?php $this->options->themeUrl('plugin/prism/prism.min.js'); ?>"></script>
 <?php else : ?>
+    <!-- 全局样式 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style.min.css">
+    <!-- 移动端样式 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style-wap.min.css">
+    <!-- 代码高亮 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.css" />
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.js"></script>
 <?php endif; ?>
@@ -38,7 +41,7 @@
 <!-- 网站标题 -->
 <title><?php if ($this->_currentPage > 1) echo '第 ' . $this->_currentPage . ' 页 - '; ?><?php $this->archiveTitle(array('category'  =>  _t('分类 %s 下的文章'), 'search'    =>  _t('包含关键字 %s 的文章'), 'tag'       =>  _t('标签 %s 下的文章'), 'author'    =>  _t('%s 发布的文章')), '', ' - '); ?><?php $this->options->title(); ?></title>
 
-<!-- 开启/关闭默认favicon -->
+<!-- favicon -->
 <?php if ($this->options->JFavicon) : ?>
     <link rel="shortcut icon" href="<?php $this->options->JFavicon() ?>" />
 <?php else : ?>
@@ -50,7 +53,8 @@
 <?php endif; ?>
 
 <?php if ($this->options->JCss) : ?>
-    <style>
+    <!-- 自定义css -->
+    <style type="text/css">
         <?php $this->options->JCss() ?>
     </style>
 <?php endif; ?>

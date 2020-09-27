@@ -1,13 +1,15 @@
 <?php
 
 /**
- * 基于 Typecho 开发的一款带弹幕的皮肤，开箱即用型主题，强大的自定义配置，请自行在模板内设置。更加强大有趣的功能持续开发中。
+ * 
+ * 基于 Typecho 开发的一款开箱即用型主题。
  * 
  * @package Typecho_Joe_Theme 
  * @author Joe
- * @version 1.2.2
+ * @version 1.2.3
  * @link //ae.js.cn
- */
+ * 
+ **/
 
 ?>
 

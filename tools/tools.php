@@ -55,26 +55,7 @@ function timer_stop($display = 0, $precision = 3)
     return $r;
 }
 
-/* 最热文章 */
-class Widget_Post_hot extends Widget_Abstract_Contents
-{
-    public function __construct($request, $response, $params = NULL)
-    {
-        parent::__construct($request, $response, $params);
-        $this->parameter->setDefault(array('pageSize' => $this->options->commentsListSize, 'parentId' => 0, 'ignoreAuthor' => false));
-    }
-    public function execute()
-    {
-        $select  = $this->select()->from('table.contents')
-            ->where("table.contents.password IS NULL OR table.contents.password = ''")
-            ->where('table.contents.status = ?', 'publish')
-            ->where('table.contents.created <= ?', time())
-            ->where('table.contents.type = ?', 'post')
-            ->limit($this->parameter->pageSize)
-            ->order('table.contents.views', Typecho_Db::SORT_DESC);
-        $this->db->fetchAll($select, array($this, 'push'));
-    }
-}
+
 
 /* 获取父级的评论 */
 function reply($parent)
@@ -205,4 +186,30 @@ function getVersion()
     $json_string = file_get_contents(theurl . 'package.json');
     $data = json_decode($json_string, true);
     return $data['version'];
+}
+
+/* 最热文章 */
+class Widget_Post_hot extends Widget_Abstract_Contents
+{
+    public function __construct($request, $response, $params = NULL)
+    {
+        parent::__construct($request, $response, $params);
+        $this->parameter->setDefault(array('pageSize' => $this->options->commentsListSize, 'parentId' => 0, 'ignoreAuthor' => false));
+    }
+    public function execute()
+    {
+        $db     = Typecho_Db::get();
+        $prefix = $db->getPrefix();
+        if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
+            $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
+        };
+        $select  = $this->select()->from('table.contents')
+            ->where("table.contents.password IS NULL OR table.contents.password = ''")
+            ->where('table.contents.status = ?', 'publish')
+            ->where('table.contents.created <= ?', time())
+            ->where('table.contents.type = ?', 'post')
+            ->limit($this->parameter->pageSize)
+            ->order('table.contents.views', Typecho_Db::SORT_DESC);
+        $this->db->fetchAll($select, array($this, 'push'));
+    }
 }
