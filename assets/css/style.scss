@@ -289,13 +289,30 @@ img:not([src]) {
                     }
                 }
                 .census {
-                    width: 220px;
-                    padding: 15px;
+                    width: 170px;
                     li {
                         white-space: nowrap;
                         color: #666;
                         font-size: 12px;
                         line-height: 24px;
+                    }
+                }
+                .login-item {
+                    width: 120px;
+                    display: flex;
+                    flex-direction: column;
+                    a {
+                        white-space: nowrap;
+                        font-size: 14px;
+                        text-align: center;
+                        transition: all 0.35s;
+                        margin-bottom: 10px;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        &:hover {
+                            color: $baseColor;
+                        }
                     }
                 }
                 form {

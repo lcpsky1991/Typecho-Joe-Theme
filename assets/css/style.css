@@ -324,8 +324,7 @@ img:not([src]) {
 }
 
 .j-header .below .j-container .button .census {
-  width: 220px;
-  padding: 15px;
+  width: 170px;
 }
 
 .j-header .below .j-container .button .census li {
@@ -333,6 +332,28 @@ img:not([src]) {
   color: #666;
   font-size: 12px;
   line-height: 24px;
+}
+
+.j-header .below .j-container .button .login-item {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.j-header .below .j-container .button .login-item a {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.35s;
+  margin-bottom: 10px;
+}
+
+.j-header .below .j-container .button .login-item a:last-child {
+  margin-bottom: 0;
+}
+
+.j-header .below .j-container .button .login-item a:hover {
+  color: var(--theme-color);
 }
 
 .j-header .below .j-container .button form .item {
