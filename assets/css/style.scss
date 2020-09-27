@@ -293,8 +293,29 @@ img:not([src]) {
                     li {
                         white-space: nowrap;
                         color: #666;
-                        font-size: 12px;
-                        line-height: 24px;
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                        &:nth-child(1) {
+                            span {
+                                color: salmon;
+                            }
+                        }
+                        &:nth-child(2) {
+                            span {
+                                color: seagreen;
+                            }
+                        }
+                        &:nth-child(3) {
+                            span {
+                                color: steelblue;
+                            }
+                        }
+                        &:last-child {
+                            span {
+                                color: fuchsia;
+                            }
+                            margin-bottom: 0;
+                        }
                     }
                 }
                 .login-item {
@@ -307,7 +328,7 @@ img:not([src]) {
                         text-align: center;
                         transition: all 0.35s;
                         margin-bottom: 10px;
-                        &:last-child{
+                        &:last-child {
                             margin-bottom: 0;
                         }
                         &:hover {
@@ -968,10 +989,10 @@ img:not([src]) {
                         bottom: 100%;
                     }
                     a {
+                        display: none;
                         color: #8599ab;
                         font-size: 13px;
                         line-height: 20px;
-                        display: -webkit-box;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
@@ -1310,6 +1331,12 @@ img:not([src]) {
                                     .line {
                                         color: #e1e1e1;
                                         margin: 0 5px;
+                                    }
+                                    .included {
+                                        color: #67c23a;
+                                    }
+                                    .unIcluded {
+                                        color: #f56c6c;
                                     }
                                 }
                             }
@@ -2056,5 +2083,33 @@ img:not([src]) {
                 padding-left: 63px;
             }
         }
+    }
+}
+
+.j-notification {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 17.5px;
+    z-index: 99999999;
+    color: #fff;
+    text-align: center;
+    background: #e6a23c;
+    transition: all 0.35s;
+    font-size: 15px;
+    &.active {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        visibility: visible;
     }
 }

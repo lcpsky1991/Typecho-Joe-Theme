@@ -87,7 +87,7 @@
 
 <!-- <18> 启用 禁用 自定义JS -->
 <?php if ($this->options->JScript) : ?>
-    <script>
+    <script type="text/javascript">
         <?php $this->options->JScript() ?>
     </script>
 <?php endif; ?>

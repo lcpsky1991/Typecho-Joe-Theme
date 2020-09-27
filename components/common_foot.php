@@ -64,6 +64,8 @@
     <?php endif; ?>
 </div>
 
+<div class="j-notification"></div>
+
 <!-- 站点公告 -->
 <?php if ($this->options->JAlert) : ?>
     <div class="j-alert" id="dayContent">

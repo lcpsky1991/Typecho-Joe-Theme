@@ -97,7 +97,6 @@ function showThumbnail($widget)
     } elseif ($t && strpos($thumbUrl[1][0], 'icon.png') == false && strpos($thumbUrl[1][0], 'alipay') == false && strpos($thumbUrl[1][0], 'wechat') == false) {
         $img = $thumbUrl[1][0];
     }
-    //  elseif ($attach->isImage) {$img=$attach->url;}//从附件中获取封面
     elseif (preg_match_all($patternMD, $widget->content, $thumbUrl)) {
         $img = $thumbUrl[1][0];
     } elseif (preg_match_all($patternMDfoot, $widget->content, $thumbUrl)) {
@@ -135,30 +134,20 @@ function art_count($cid)
 }
 
 /* 检测是否收录 */
-function checkBaidu($url)
+function checkBaiduRecord()
 {
-    $url = 'http://www.baidu.com/s?wd=' . urlencode($url);
+    $url = 'http://www.baidu.com/s?wd=' . urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) . '&ie=UTF-8';
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $rs = curl_exec($curl);
-    curl_close($curl);
-    if (!strpos($rs, '没有找到')) {
-        return 1;
+    if (!strpos($rs, '为您找到相关结果约0个') && !strpos($rs, '没有找到该URL')) {
+        echo "<span class='included'>已收录</span>";
     } else {
-        return -1;
+        echo "<span class='unIcluded'>未收录</span>";
     }
 }
 
-function baidu_record()
-{
-    $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    if (checkBaidu($url) == 1) {
-        echo "已收录";
-    } else {
-        echo "未收录";
-    }
-}
 
 
 function isMobile()

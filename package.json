@@ -1,6 +1,6 @@
 {
     "name": "typecho_joe_theme",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "基于 Typecho 开发的一款带弹幕的皮肤，开箱即用型主题，强大的自定义配置，请自行在模板内设置。更加强大有趣的功能持续开发中。",
     "main": "index.js",
     "scripts": {

@@ -65,10 +65,10 @@
                     </div>
                     <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
                     <ul class="dropdown headDropdown census">
-                        <li>文章总数：<?php $stat->publishedPostsNum() ?> 篇</li>
-                        <li>评论总数：<?php $stat->publishedCommentsNum() ?> 条</li>
-                        <li>分类总数：<?php $stat->categoriesNum() ?> 个</li>
-                        <li>最后更新：<?php get_last_update() ?></li>
+                        <li>文章总数：<span><?php $stat->publishedPostsNum() ?></span> 篇</li>
+                        <li>评论总数：<span><?php $stat->publishedCommentsNum() ?></span> 条</li>
+                        <li>分类总数：<span><?php $stat->categoriesNum() ?></span> 个</li>
+                        <li>最后更新：<span><?php get_last_update() ?></span></li>
                     </ul>
                 </div>
             <?php endif; ?>

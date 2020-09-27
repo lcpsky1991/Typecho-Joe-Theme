@@ -49,7 +49,7 @@
                                             <div class="line">/</div>
                                             <span><?php get_post_view($this) ?> 阅读</span>
                                             <div class="line">/</div>
-                                            <span><?php echo baidu_record() ?></span>
+                                            <?php checkBaiduRecord() ?>
                                         </div>
                                     </div>
                                 </div>

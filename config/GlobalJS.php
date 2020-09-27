@@ -13,6 +13,14 @@
         })
 
 
+        function JNotification(str) {
+            if ($(".j-notification").hasClass("active")) return
+            $(".j-notification").html(str)
+            $(".j-notification").addClass("active")
+            setTimeout(function() {
+                $(".j-notification").removeClass("active")
+            }, 2000)
+        }
 
         /* 归档按顺序依次进入 */
         function isOnScreen(el) {
@@ -59,8 +67,13 @@
         /* 点击按钮显示弹框 */
         $('.headDrop').on('click', function(e) {
             e.stopPropagation();
-            $(".headDropdown").removeClass("active");
-            $(this).siblings(".headDropdown").addClass('active');
+            if ($(this).siblings(".headDropdown").hasClass('active')) {
+                $(this).siblings(".headDropdown").removeClass('active');
+            } else {
+                $(".headDropdown").removeClass("active");
+                $(this).siblings(".headDropdown").addClass('active');
+            }
+
         })
 
 
@@ -144,6 +157,24 @@
             $("#commentTypeContent canvas").prop("width", $("#commentTypeContent").width())
         })
 
+        $("#comment-form .foot .right a").on("click", function() {
+            $("#commentTypeContent canvas").prop("width", $("#commentTypeContent").width())
+        })
+
+
+        /* 格式化侧边栏图片评论 */
+        if ($("#asideReply").length > 0) {
+            $("#asideReply a").each(function(i, item) {
+                let str = $(item).html()
+                if (/\{!\{.*/.test(str)) {
+                    $(item).html("# 图片回复")
+                } else {
+                    $(item).html(str)
+                }
+                $(item).css("display", "-webkit-box")
+            })
+        }
+
         /* 判断是否是canvas图片 */
         $(".replyContent p").each(function(i, item) {
             let str = $(item).html()
@@ -153,18 +184,22 @@
             } else {
                 $(item).html(str)
             }
-            $(".replyContent").show()
+
         })
+        if ($(".replyContent").length > 0) {
+            $(".replyContent").show()
+        }
+
 
         /* 评论验证 */
         $("#comment-form").on("submit", function(e) {
             if ($("#comment-nick").val().trim() === "") {
                 e.preventDefault()
-                return alert("请输入昵称")
+                return JNotification("请输入昵称")
             }
             if (!/\d{5,11}/.test($("#comment-qq").val())) {
                 e.preventDefault()
-                return alert("请输入正确的QQ")
+                return JNotification("请输入正确的QQ")
             }
             if ($("#commentTypeContent .canvas").attr("data-type") === "canvas") {
                 let url = $('#commentTypeContent canvas')[0].toDataURL('image/png');
@@ -172,7 +207,7 @@
             }
             if ($("#comment-content").val().trim() === "") {
                 e.preventDefault()
-                return alert("请输入内容")
+                return JNotification("请输入内容")
             }
         })
 
