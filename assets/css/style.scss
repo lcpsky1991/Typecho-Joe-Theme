@@ -1615,6 +1615,12 @@ img:not([src]) {
                 }
             }
 
+            .none {
+                color: #666;
+                user-select: none;
+                font-size: 14px;
+            }
+
             .page {
                 display: flex;
                 justify-content: space-between;

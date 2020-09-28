@@ -1838,6 +1838,12 @@ img:not([src]) {
   text-overflow: ellipsis;
 }
 
+.j-article .mainer .contain .none {
+  color: #666;
+  user-select: none;
+  font-size: 14px;
+}
+
 .j-article .mainer .contain .page {
   display: flex;
   justify-content: space-between;
