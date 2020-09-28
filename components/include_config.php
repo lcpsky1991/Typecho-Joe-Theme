@@ -13,7 +13,6 @@
 <?php endif; ?>
 
 
-
 <!-- 全局JS，自执行 -->
 <?php $this->need('config/GlobalJS.php'); ?>
 

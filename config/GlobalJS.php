@@ -101,8 +101,92 @@
             }
         });
 
+        function random(t, n) {
+            return Math.floor(Math.random() * (n - t + 1)) + t
+        }
+
+        /* 留言 */
+        if ($("#leavingList").length > 0) {
+            let isDown = false;
+            let x = 0;
+            let y = 0;
+            let positionX = 0;
+            let positionY = 0;
+            let moveItem = null;
+            let zIndex = 1000
+            $("#leavingList li").each(function(i, item) {
+                let str = $(item).find(".content p").html()
+                if (/\{!\{.*\}!\}/.test(str)) {
+                    str = str.match(/{!{.*}!}/)[0].replace(/{!{/, "").replace(/}!}/, "")
+                    $(item).find(".content").html(`<img class="canvas" src="${str}" />`)
+                } else {
+                    $(item).find(".content p").html(str)
+                }
+                $(item).css({
+                    "z-index": random(1, 99),
+                    "background-color": `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)}, ${random(0.8, 1)})`,
+                    top: parseInt(Math.random() * ($("#leavingList").height() - $(item).height()), 10),
+                    left: parseInt(Math.random() * ($("#leavingList").width() - $(item).width()), 10),
+                    display: "flex"
+                })
+                $(item).on("mousedown", function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    isDown = true;
+                    moveItem = $(this);
+                    x = e.pageX;
+                    y = e.pageY;
+                    positionX = $(this).position().left;
+                    positionY = $(this).position().top;
+                    $(item).css("z-index", zIndex)
+                    zIndex++
+                    return false;
+                })
+            })
+
+            $(document).on("mouseup", function(e) {
+                isDown = false;
+            })
+
+            $(document).on("mousemove", function(e) {
+                let xPage = e.pageX;
+                let moveX = positionX + xPage - x;
+
+                let yPage = e.pageY;
+                let moveY = positionY + yPage - y;
+
+                if (isDown == true) {
+                    $(moveItem).css({
+                        left: moveX,
+                        top: moveY
+                    });
+                } else {
+                    return
+                }
+                if (moveX < 0) {
+                    $(moveItem).css({
+                        left: 0
+                    });
+                }
+                if (moveX > $("#leavingList").width() - $(moveItem).width()) {
+                    $(moveItem).css({
+                        left: $("#leavingList").width() - $(moveItem).width()
+                    });
+                }
+                if (moveY < 0) {
+                    $(moveItem).css({
+                        top: 0
+                    });
+                }
+                if (moveY > $("#leavingList").height() - $(moveItem).height()) {
+                    $(moveItem).css({
+                        top: $("#leavingList").height() - $(moveItem).height()
+                    });
+                }
+            })
 
 
+        }
 
 
 
