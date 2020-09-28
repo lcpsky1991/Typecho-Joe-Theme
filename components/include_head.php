@@ -16,23 +16,31 @@
 <!-- 视图窗口 -->
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
+<!-- 禁止缓存 -->
+<meta http-equiv="pragma" content="no-cache">
+
+<!-- 禁止缓存 -->
+<meta http-equiv="cache-control" content="no-cache">
+
+<!-- 禁止缓存 -->
+<meta http-equiv="expires" content="0">
+
 <!-- 自有函数 -->
 <?php $this->header(); ?>
 
-
 <?php if ($this->options->JCDN == 'close') : ?>
     <!-- 全局样式 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.min.css'); ?>" />
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.min.css?v=' . time()); ?>" />
     <!-- 移动端样式 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-wap.min.css'); ?>" />
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-wap.min.css?v=' . time()); ?>" />
     <!-- 代码高亮 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('plugin/prism/prism.min.css'); ?>" />
     <script src="<?php $this->options->themeUrl('plugin/prism/prism.min.js'); ?>"></script>
 <?php else : ?>
     <!-- 全局样式 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style.min.css?v=<?php echo time() ?>">
     <!-- 移动端样式 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style-wap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/assets/css/style-wap.min.css?v=<?php echo time() ?>">
     <!-- 代码高亮 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.css" />
     <script src="//cdn.jsdelivr.net/npm/typecho_joe_theme@<?php echo getVersion() ?>/plugin/prism/prism.min.js"></script>

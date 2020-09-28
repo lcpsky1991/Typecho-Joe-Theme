@@ -96,8 +96,7 @@ function showThumbnail($widget)
         $img = $widget->fields->fm;
     } elseif ($t && strpos($thumbUrl[1][0], 'icon.png') == false && strpos($thumbUrl[1][0], 'alipay') == false && strpos($thumbUrl[1][0], 'wechat') == false) {
         $img = $thumbUrl[1][0];
-    }
-    elseif (preg_match_all($patternMD, $widget->content, $thumbUrl)) {
+    } elseif (preg_match_all($patternMD, $widget->content, $thumbUrl)) {
         $img = $thumbUrl[1][0];
     } elseif (preg_match_all($patternMDfoot, $widget->content, $thumbUrl)) {
         $img = $thumbUrl[1][0];

@@ -22,6 +22,8 @@ li {
     padding: 15px;
     margin-bottom: 30px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    max-height: 600px;
+    overflow-y: auto;
     h2 {
         color: #ff6800;
         font-size: 20px;
