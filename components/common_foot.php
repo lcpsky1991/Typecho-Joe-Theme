@@ -1,8 +1,3 @@
-<!-- 启用/禁用 音乐播放器 -->
-<?php if (!empty($this->options->JWindowBlock) && in_array('ShowAPlayer', $this->options->JWindowBlock)) : ?>
-    <meting-js id="<?php $this->options->JMeting(); ?>" lrc-type="1" server="netease" theme="#ebebeb" autoplay type="playlist" fixed="true" list-olded="true"></meting-js>
-<?php endif; ?>
-
 
 <!-- 最底部版权信息 -->
 <div class="j-footer">

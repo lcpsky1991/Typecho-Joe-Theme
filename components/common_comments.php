@@ -41,10 +41,12 @@ function threadedComments($comments, $options)
     <div class="title">评论 (<?php $this->commentsNum(); ?>)</div>
     <?php if ($this->allow('comment')) : ?>
         <div id="<?php $this->respondId(); ?>" class="respond j-comment">
-            <div class="change" id="commentType">
-                <button data-type="canvas">画图模式</button>
-                <button data-type="text" class="active">文本模式</button>
-            </div>
+            <?php if (!isMobile()) : ?>
+                <div class="change" id="commentType">
+                    <button data-type="canvas">画图模式</button>
+                    <button data-type="text" class="active">文本模式</button>
+                </div>
+            <?php endif; ?>
             <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
                 <div class="head">
                     <input type="text" <?php if ($this->user->hasLogin()) : ?> value="<?php $this->user->screenName(); ?>" <?php else : ?> value="<?php $this->remember('author'); ?>" <?php endif; ?> autocomplete="off" name="author" id="comment-nick" maxlength="16" placeholder="昵称：请输入昵称（必填）">

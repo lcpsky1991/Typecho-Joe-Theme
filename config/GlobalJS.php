@@ -1,28 +1,11 @@
 <script type="text/javascript">
     $(function() {
-        /* 文章页点击图片预览 */
-        $("#markdown img").each(function(i, item) {
-            $(item).addClass("lazyload");
-            $(item).attr("data-original", $(item).attr("src"));
-            $(item).attr("src", "<?php $this->options->themeUrl('assets/img/lazyload.jpg'); ?>")
-            $(item).on("click", function() {
-                $(".j-preview").addClass("active")
-                $('body').css("overflow", "hidden")
-                $(".j-preview img").attr("src", $(item).attr("data-original"))
-            })
-        })
-
-
-        function JNotification(str) {
-            if ($(".j-notification").hasClass("active")) return
-            $(".j-notification").html(str)
-            $(".j-notification").addClass("active")
-            setTimeout(function() {
-                $(".j-notification").removeClass("active")
-            }, 2000)
+        /* 取随机数的函数 */
+        function random(t, n) {
+            return Math.floor(Math.random() * (n - t + 1)) + t
         }
 
-        /* 归档按顺序依次进入 */
+        /* 判断元素是否在当前视图窗口内 */
         function isOnScreen(el) {
             var win = $(window);
             var viewport = {
@@ -37,15 +20,36 @@
             return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
         }
 
-        $(".timeline li").each((i, item) => {
-            if (isOnScreen($(item))) {
-                $(item).find("a").addClass("active")
-            } else {
-                $(item).find("a").removeClass("active")
-            }
-        })
+        /* 文章页点击图片预览 */
+        if ($("#markdown").length > 0) {
+            $("#markdown img").each(function(i, item) {
+                $(item).addClass("lazyload");
+                $(item).attr("data-original", $(item).attr("src"));
+                $(item).attr("src", "<?php $this->options->themeUrl('assets/img/lazyload.jpg'); ?>")
+                $(item).on("click", function() {
+                    $(".j-preview").addClass("active")
+                    $('body').css("overflow", "hidden")
+                    $(".j-preview img").attr("src", $(item).attr("data-original"))
+                })
+            })
+        }
 
-        $(window).on("scroll", function() {
+        /* 全局弹窗提示 */
+        function JNotification(str) {
+            if ($(".j-notification").hasClass("active")) return
+            $(".j-notification").html(str)
+            $(".j-notification").addClass("active")
+            setTimeout(function() {
+                $(".j-notification").removeClass("active")
+            }, 2000)
+        }
+
+
+
+        /* 归档 */
+        if ($(".timeline").length > 0) {
+
+            /* 归档 - 如果在窗口内 则显示 */
             $(".timeline li").each((i, item) => {
                 if (isOnScreen($(item))) {
                     $(item).find("a").addClass("active")
@@ -53,8 +57,17 @@
                     $(item).find("a").removeClass("active")
                 }
             })
-        })
-
+            /* 鼠标滚动在调用一次 */
+            $(window).on("scroll", function() {
+                $(".timeline li").each((i, item) => {
+                    if (isOnScreen($(item))) {
+                        $(item).find("a").addClass("active")
+                    } else {
+                        $(item).find("a").removeClass("active")
+                    }
+                })
+            })
+        }
 
 
         /* 点击关闭图片预览 */
@@ -64,46 +77,47 @@
         })
 
 
-        /* 点击按钮显示弹框 */
-        $('.headDrop').on('click', function(e) {
-            e.stopPropagation();
-            if ($(this).siblings(".headDropdown").hasClass('active')) {
-                $(this).siblings(".headDropdown").removeClass('active');
-            } else {
-                $(".headDropdown").removeClass("active");
-                $(this).siblings(".headDropdown").addClass('active');
-            }
-
-        })
-
-
-        /* 弹框内点击禁止事件冒泡 */
-        $('.headDropdown').on('click', function(e) {
-            e.stopPropagation();
-        });
-
-
-        /* 搜索框没有内容时禁止搜素 */
-        $('#search').on('submit', function(e) {
-            if ($('#search input').val().trim() === '') {
-                e.preventDefault();
-            }
-        });
-
-
-        /* 登录框没有内容时禁止登录 */
-        $('#loginBox').on('submit', function(e) {
-            if ($('#userName').val().trim() === '') {
-                return e.preventDefault();
-            }
-            if ($('#passWord').val().trim() === '') {
-                return e.preventDefault();
-            }
-        });
-
-        function random(t, n) {
-            return Math.floor(Math.random() * (n - t + 1)) + t
+        /* 头部点击出现下拉选项 */
+        if ($(".headDrop").length > 0) {
+            $('.headDrop').on('click', function(e) {
+                e.stopPropagation();
+                if ($(this).siblings(".headDropdown").hasClass('active')) {
+                    $(this).siblings(".headDropdown").removeClass('active');
+                } else {
+                    $(".headDropdown").removeClass("active");
+                    $(this).siblings(".headDropdown").addClass('active');
+                }
+            })
+            /* 弹框内点击禁止事件冒泡 */
+            $('.headDropdown').on('click', function(e) {
+                e.stopPropagation();
+            });
         }
+
+
+        if ($("#search").length > 0) {
+            /* 搜索框没有内容时禁止搜素 */
+            $('#search').on('submit', function(e) {
+                if ($('#search input').val().trim() === '') {
+                    e.preventDefault();
+                }
+            });
+        }
+
+
+        if ($("#loginBox").length > 0) {
+            /* 登录框没有内容时禁止登录 */
+            $('#loginBox').on('submit', function(e) {
+                if ($('#userName').val().trim() === '') {
+                    return e.preventDefault();
+                }
+                if ($('#passWord').val().trim() === '') {
+                    return e.preventDefault();
+                }
+            });
+        }
+
+
 
         /* 留言 */
         if ($("#leavingList").length > 0) {
@@ -184,8 +198,6 @@
                     });
                 }
             })
-
-
         }
 
 
@@ -308,5 +320,7 @@
         $(".lazyload").lazyload({
             effect: "fadeIn"
         });
+
+
     })
 </script>

@@ -6,7 +6,7 @@
  * 
  * @package Typecho_Joe_Theme 
  * @author Joe
- * @version 1.2.7
+ * @version 1.2.8
  * @link //ae.js.cn
  * 
  **/
@@ -22,7 +22,12 @@
 
 <body>
     <!-- 公共网页头部 -->
-    <?php $this->need('components/common_head.php'); ?>
+    <?php if (!isMobile()) : ?>
+        <?php $this->need('components/common_head.php'); ?>
+    <?php else : ?>
+        <?php $this->need('components/common_head_wap.php'); ?>
+    <?php endif; ?>
+
 
     <!-- 首页 -->
     <div class="j-main j-container">
@@ -32,25 +37,6 @@
 
             <!-- 文章列表 -->
             <div class="j-index">
-
-                <!-- 热门文章 -->
-                <?php if (!empty($this->options->JIndexBlock) && in_array('ShowIndexHot', $this->options->JIndexBlock)) : ?>
-                    <ul class="hot">
-                        <?php $this->widget('Widget_Post_hot@r3@hot', 'pageSize=4')->to($hot); ?>
-                        <?php while ($hot->next()) : ?>
-                            <li>
-                                <a href="<?php $hot->permalink(); ?>" title="<?php $hot->title(); ?>">
-                                    <img class="lazyload" src="<?php $this->options->themeUrl('assets/img/lazyload.jpg'); ?>" data-original="<?php showThumbnail($this); ?>">
-                                    <p><?php $hot->title(); ?></p>
-                                    <span>
-                                        <?php get_post_view($hot); ?> ℃
-                                    </span>
-                                </a>
-                            </li>
-                        <?php endwhile; ?>
-                    </ul>
-                <?php endif; ?>
-
                 <!-- 广告 -->
                 <?php if ($this->options->JIndexAD) : ?>
                     <div class="ad">
@@ -59,6 +45,29 @@
                         </a>
                     </div>
                 <?php endif; ?>
+                <!-- 热门文章 -->
+                <?php if (!empty($this->options->JIndexBlock) && in_array('ShowIndexHot', $this->options->JIndexBlock)) : ?>
+                    <div class="hot-box">
+                        <div class="title">热门文章</div>
+                        <ul class="hot">
+                            <?php $this->widget('Widget_Post_hot@r3@hot', 'pageSize=4')->to($hot); ?>
+                            <?php while ($hot->next()) : ?>
+                                <li>
+                                    <a href="<?php $hot->permalink(); ?>" title="<?php $hot->title(); ?>">
+                                        <img class="lazyload" src="<?php $this->options->themeUrl('assets/img/lazyload.jpg'); ?>" data-original="<?php showThumbnail($this); ?>">
+                                        <p><?php $hot->title(); ?></p>
+                                        <span>
+                                            <?php get_post_view($hot); ?> ℃
+                                        </span>
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    </div>
+
+                <?php endif; ?>
+
+
 
                 <!-- 标题和公告 -->
                 <div class="nav-title">
@@ -131,16 +140,18 @@
     </div>
 
 
-    <!-- 弹幕列表 -->
-    <ul class="j-barrager-list">
-        <?php $this->widget('Widget_Comments_Recent@sb399', 'ignoreAuthor=true')->to($comments); ?>
-        <?php while ($comments->next()) : ?>
-            <li>
-                <span class="j-barrager-list-avatar" data-src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100"></span>
-                <span class="j-barrager-list-content"><?php $comments->excerpt(); ?></span>
-            </li>
-        <?php endwhile; ?>
-    </ul>
+    <?php if (!isMobile()) : ?>
+        <!-- 弹幕列表 -->
+        <ul class="j-barrager-list">
+            <?php $this->widget('Widget_Comments_Recent@sb399', 'ignoreAuthor=true')->to($comments); ?>
+            <?php while ($comments->next()) : ?>
+                <li>
+                    <span class="j-barrager-list-avatar" data-src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100"></span>
+                    <span class="j-barrager-list-content"><?php $comments->excerpt(); ?></span>
+                </li>
+            <?php endwhile; ?>
+        </ul>
+    <?php endif; ?>
 
 
     <!-- 公共网页底部 -->

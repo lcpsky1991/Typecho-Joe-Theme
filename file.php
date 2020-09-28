@@ -15,7 +15,12 @@
 </head>
 
 <body>
-    <?php $this->need('components/common_head.php'); ?>
+    <!-- 公共网页头部 -->
+    <?php if (!isMobile()) : ?>
+        <?php $this->need('components/common_head.php'); ?>
+    <?php else : ?>
+        <?php $this->need('components/common_head_wap.php'); ?>
+    <?php endif; ?>
 
     <div class="j-container j-article">
         <!-- 主题 -->
@@ -75,6 +80,18 @@
             <?php $this->need('components/common_aside.php'); ?>
         </div>
     </div>
+
+    <?php if (!isMobile()) : ?>
+        <ul class="j-barrager-list">
+            <?php $this->widget('Widget_Comments_Recent@sb399', 'ignoreAuthor=true')->to($comments); ?>
+            <?php while ($comments->next()) : ?>
+                <li>
+                    <span class="j-barrager-list-avatar" data-src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100"></span>
+                    <span class="j-barrager-list-content"><?php $comments->excerpt(); ?></span>
+                </li>
+            <?php endwhile; ?>
+        </ul>
+    <?php endif; ?>
 
     <!-- 公共网页底部 -->
     <?php $this->need('components/common_foot.php'); ?>

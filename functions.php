@@ -123,7 +123,7 @@ function themeConfig($form)
     $JDocumentPCBG->setAttribute('class', 'j-content j-global');
     $form->addInput($JDocumentPCBG);
 
-    $JDocumentWAPBG = new Typecho_Widget_Helper_Form_Element_Textarea('JDocumentWAPBG', NULL, NULL, _t('7. WAP端网站背景图片（非必填）'), _t('若您想使用自定义图片，请先关闭下方的canvas背景，否则该项不会起作用。介绍：WAP端网站的背景图片，不填写时显示默认的灰色。填写时请填写图片地址 或 随机图片api 例如：http://api.btstu.cn/sjbz/?lx=m_dongman'));
+    $JDocumentWAPBG = new Typecho_Widget_Helper_Form_Element_Textarea('JDocumentWAPBG', NULL, NULL, _t('7. WAP端网站背景图片（非必填）'), _t('介绍：WAP端网站的背景图片，不填写时显示默认的灰色。填写时请填写图片地址 或 随机图片api 例如：http://api.btstu.cn/sjbz/?lx=m_dongman'));
     $JDocumentWAPBG->setAttribute('class', 'j-content j-global');
     $form->addInput($JDocumentWAPBG);
 

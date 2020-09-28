@@ -34,6 +34,8 @@ body {
     background-color: #f5f5f5;
     background-attachment: fixed;
     background-size: cover;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 a {
@@ -116,7 +118,7 @@ img:not([src]) {
     transition: transform 0.35s;
     background: #fff;
     box-shadow: 0 5px 40px 0 rgba(17, 58, 93, 0.1);
-    z-index: 9999;
+    z-index: 2020520;
     .above {
         display: flex;
         height: 60px;
@@ -445,6 +447,7 @@ img:not([src]) {
     position: fixed;
     bottom: 75px;
     right: 75px;
+    z-index: 2020520;
     .item {
         display: flex;
         align-items: center;
@@ -496,63 +499,69 @@ img:not([src]) {
     padding: 0 20px;
     box-shadow: 0px 0px 20px -5px rgba(158, 158, 158, 0.22);
     border-radius: 8px;
-    .hot {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 20px;
-        li {
-            width: 25%;
-            padding: 0 7.5px;
-            &:first-child {
-                padding-left: 0;
-            }
-            &:last-child {
-                padding-right: 0;
-            }
-            a {
-                position: relative;
-                display: block;
-                &:hover {
-                    opacity: 0.85;
-                    p {
-                        color: $baseColor;
+    .hot-box {
+        .title {
+            display: none;
+        }
+        .hot {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 20px;
+            li {
+                width: 25%;
+                padding: 0 7.5px;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+                a {
+                    position: relative;
+                    display: block;
+                    &:hover {
+                        opacity: 0.85;
+                        p {
+                            color: $baseColor;
+                        }
                     }
-                }
-                img {
-                    width: 100%;
-                    height: 125px;
-                    object-fit: cover;
-                    margin-bottom: 10px;
-                    border-radius: 4px;
-                }
-                p {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    text-align: center;
-                    font-size: 14px;
-                    font-weight: 500;
-                }
-                span {
-                    display: flex;
-                    align-items: center;
-                    position: absolute;
-                    top: 5px;
-                    right: 5px;
-                    background: $baseColor;
-                    color: #fff;
-                    height: 20px;
-                    font-size: 12px;
-                    padding: 0 7px;
-                    border-radius: 2px;
-                    max-width: 200px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
+                    img {
+                        width: 100%;
+                        height: 125px;
+                        object-fit: cover;
+                        margin-bottom: 10px;
+                        border-radius: 4px;
+                    }
+                    p {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        text-align: center;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                    span {
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        background: $baseColor;
+                        color: #fff;
+                        height: 20px;
+                        font-size: 12px;
+                        padding: 0 7px;
+                        border-radius: 2px;
+                        max-width: 200px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
                 }
             }
         }
     }
+
     .ad {
         padding-top: 20px;
         a {
@@ -803,6 +812,7 @@ img:not([src]) {
         height: 195px;
         a {
             display: block;
+            height: 100%;
             img {
                 width: 100%;
                 height: 100%;
@@ -1164,6 +1174,7 @@ img:not([src]) {
             a {
                 background: $baseColor;
                 color: #fff;
+                font-weight: 500;
             }
         }
     }
@@ -1350,6 +1361,7 @@ img:not([src]) {
                     }
                 }
                 .markdown {
+                    word-wrap: break-word;
                     font-size: 15px;
                     h1,
                     h2,
