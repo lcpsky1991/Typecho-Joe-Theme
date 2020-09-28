@@ -42,7 +42,7 @@
                                     <div class="title">
                                         <img src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100" alt="">
                                         <span><?php $comments->author(); ?></span>
-                                        <span><?php $comments->date(); ?></span>
+                                        <span><?php $this->date('Y/m/d'); ?></span>
                                     </div>
                                     <div class="content">
                                         <?php $comments->content(); ?>

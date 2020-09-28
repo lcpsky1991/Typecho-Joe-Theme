@@ -86,8 +86,9 @@ function themeConfig($form)
             'ShowAPlayer' => _t('开启 / 关闭 —— 音乐播放器（可以在下方配置您的网抑云ID，也可以修改代码设置成QQ音乐平台等）'),
             'ShowConsole' => _t('开启 / 关闭 —— 代码防偷功能（可有效防止别人调试偷代码，提示内容请在console.html里面自行修改）'),
             'ShowPageLoad' => _t('开启 / 关闭 —— 页面加载动画（加载动画一般在网络较慢的情况下显示，正常情况下网页都是秒开）'),
+            'ShowHoverMusic' => _t('开启 / 关闭 —— 鼠标划入音效（当鼠标滑到导航栏上的链接时，会播放音效，仅限PC端）')
         ),
-        array('ShowHeaderScroll', 'ShowLoginButton', 'ShowCensusButton', 'ShowBarrager', 'ShowColorTheme', 'ShowBackTop', 'ShowProgressBar', 'ShowContextMenu', 'ShowCountTime', 'ShowConsole', 'ShowPageLoad'),
+        array('ShowHeaderScroll', 'ShowLoginButton', 'ShowCensusButton', 'ShowBarrager', 'ShowColorTheme', 'ShowBackTop', 'ShowProgressBar', 'ShowContextMenu', 'ShowCountTime', 'ShowConsole', 'ShowPageLoad', 'ShowHoverMusic'),
         _t('5. 全局窗口类控制')
     );
     $JWindowBlock->setAttribute('class', 'j-content j-global');

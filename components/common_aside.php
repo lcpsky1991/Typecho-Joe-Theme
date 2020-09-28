@@ -90,7 +90,7 @@
                                 <img src="//q2.qlogo.cn/g?b=qq&nk=<?php echo $comments->mail; ?>&s=100">
                                 <div class="info">
                                     <div class="name"><?php $comments->author(false); ?></div>
-                                    <span><?php $comments->date(); ?></span>
+                                    <span><?php $this->date('Y-m-d'); ?></span>
                                 </div>
                             </div>
                             <div class="reply">

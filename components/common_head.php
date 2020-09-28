@@ -9,7 +9,7 @@
     <div class="j-container above">
 
         <!-- L O G O -->
-        <a class="logo" href="<?php $this->options->siteUrl(); ?>">
+        <a class="logo hoverMusic" href="<?php $this->options->siteUrl(); ?>">
             <?php if ($this->options->JLogo) : ?>
                 <img src="<?php $this->options->JLogo() ?>" />
             <?php else : ?>
@@ -22,7 +22,7 @@
         </a>
 
         <!-- N A V -->
-        <div class="link">
+        <div class="link" id="headNavLink">
             <a class="<?php if ($this->is('index')) : ?>active<?php endif; ?>" href="<?php $this->options->siteUrl(); ?>">首页</a>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while ($pages->next()) : ?>

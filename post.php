@@ -48,7 +48,7 @@
                                             <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a>
                                         </div>
                                         <div class="body">
-                                            <span><?php $this->date(); ?></span>
+                                            <span><?php $this->date('Y-m-d'); ?></span>
                                             <div class="line">/</div>
                                             <span><?php $this->commentsNum('%d'); ?> 评论</span>
                                             <div class="line">/</div>

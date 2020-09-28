@@ -156,3 +156,10 @@
         <?php $this->options->JScript() ?>
     </script>
 <?php endif; ?>
+
+<?php if (!isMobile()) : ?>
+    <?php if (!empty($this->options->JWindowBlock) && in_array('ShowHoverMusic', $this->options->JWindowBlock)) : ?>
+        <!-- <19> 启用 禁用 自定义JS -->
+        <?php $this->need('config/HoverMusic.php'); ?>
+    <?php endif; ?>
+<?php endif; ?>
